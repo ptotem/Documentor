@@ -1,0 +1,21 @@
+<h3>Dockets : <%= link_to @case_study.name, result_landing_page_path %></h3>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Dockets Name</th>
+    <th>Documents</th>
+
+    <th></th>
+
+
+  </tr>
+  <% @dockets.each_with_index.each do |docket, index| %>
+
+      <tr>
+        <td><%= docket.name %></td>
+        <td><%= link_to "Show Documents", show_document_list_path(@case_study.id,@assignment.id, docket.id) %></td>
+
+      </tr>
+  <% end %>
+
+</table>

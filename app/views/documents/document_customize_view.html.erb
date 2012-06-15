@@ -1,0 +1,265 @@
+<%= content_for :head do %>
+
+<%= javascript_include_tag "exclusions/jquery.multiselect.js" %>
+    <script type="text/javascript">
+
+        function show_spec(link) {
+            //alert(link.text());
+            // $(".type_"+$('#component_field').attr("value")).show();
+            //  $("#selection"+selection_no).find("div").css("visibility", "visible");
+            //alert( link.parent().parent().attr("class"));
+
+            if (link.parent().next().next().css("visibility") == "visible")
+                link.parent().next().next().css("visibility", "hidden");
+
+            else
+            {
+                link.parent().next().next().find("div.type #example").multiselect();
+                link.parent().next().next().css("visibility", "visible");
+
+                
+            }
+            
+        }
+
+
+
+
+        $(function () {
+
+            var spec = new Array();
+            var s="";
+            <% @component_types.each do |component_type| %>
+            <% component_type.component_specs.each do |s_specs| %>
+            s=s+'<%= check_box_tag s_specs.name ,s_specs.name,false,:class=>"spec_check_box"%> <%= s_specs.name %> <br>';
+            <% end %>
+
+            //var s = <%#= select_tag :component_type_spec,options_from_collection_for_select(component_type.component_specs,"name","name"),:id=>"example",:multiple=>true -%>;
+            spec[<%= component_type.id %>] = '<div id="type_<%= component_type.id %>" class="c_type" style="visibility: hidden;background:grey;text-align:left" >' + s + '</div>';
+            s="";
+            <% end %>
+
+
+            $(document).on("change",".spec_check_box",function(){
+
+                var prev_title=$(this).parent().prev().prev().attr("title");
+                if ($(this).prop("checked"))
+                {
+
+                var new_title=prev_title+" - "+$(this).attr("value");
+
+                }
+                else
+                {
+                    var new_title=prev_title.replace(" - "+$(this).attr("value"),"");
+
+                }
+                $(this).parent().prev().prev().attr("title",new_title);
+                $(this).parent().prev().text(new_title);
+
+            })  ;
+
+            var component_name = "";
+            $('#component_field').attr("value", "empty");
+
+            // Select a Component
+            $('.component_icon').click(function (event) {
+
+                $('.component_icon').removeClass('selected_icon');
+                $('.component_icon a').removeClass('error').addClass('primary');
+                $(this).addClass('selected_icon');
+                $(this).children('a').removeClass('primary').addClass('error');
+                $('#component_field').attr("value", $(this).attr('id'));
+               	component_name = $(this).attr("title");
+		event.preventDefault();
+            });
+
+
+            $('.selectiondiv').draggable();
+            $('.selectiondiv').resizable();
+
+            var selection_no = 0;
+
+            $("#DocumentFrame").click(function (e) {
+
+//                if (e.target.hasClass('xbutton')) {
+//                    $(".xbutton").trigger('click');
+//                }
+//                alert($('#component_field').attr("value"));
+//
+                if ($('#component_field').attr("value") != "empty") {
+                    var LEFT = e.pageX
+                    var TOP = e.pageY
+                    var this_selection = "#selection" + selection_no;
+
+                    $('#DocumentFrame').after('<div id="selection' + selection_no + '" class="selectiondiv ui-widget-content">  </div>');
+
+                    $(this_selection).append(" <div class='ui-widget-header' title='" +component_name + "' style='margin: 3px;color:black; font-size:<%= @page.line_height %>px'>" + component_name + "<a href='#' onclick='$(this).parent().parent().remove();' class='pull-right' style='font-size: 12px;color:black;margin-right: 3px;'>x</a>" + "<a onclick='show_spec($(this))' class='pull-right plus-sign' style='font-size: 12px;color:black;margin-right: 3px;'>+</a>" + "</div> "+"<div class='white_box_text'>"+component_name+" </div>"+ spec[parseInt($('#component_field').attr("value"))]);
+
+                    // Use CSS to place your selection div
+                    $("#selection" + selection_no).css({
+                        position:'absolute',
+                        zIndex:5000,
+                        left:LEFT,
+                        top:TOP,
+                        width:100,
+                        height:40
+                    });
+
+                    $(".c_type").css({
+                        position:'relative',
+                        zIndex:5000,
+                        left:100,
+                        top:0 ,
+                    width:150
+
+                    });
+
+                    $(this_selection).show();
+                    $(this_selection).draggable();
+                    $(this_selection).resizable();
+                    selection_no += 1;
+                } else {
+                    alert("Please pick a component type first!");
+                }
+
+            });
+
+            $('#save_button').click(function () {
+                var data = {fields:[]};
+                var count = $('.selectiondiv').length;
+
+                $('.selectiondiv').each(function () {
+                    data["fields"].push({
+                        comp_name:$(this).find('div.ui-widget-header').attr("title"),
+                        width:$(this).width(),
+                        height:$(this).height(),
+                        xpos:$(this).position().left,
+                        ypos:$(this).position().top})
+                });
+                $.ajax({
+                    url:'/documents/structure_form/<%= @page.id %>/' + count,
+                    type:"post",
+                    data:JSON.stringify(data),
+                    contentType:"application/json",
+                    success:function (data) {
+
+                    }
+                });
+            });
+
+        });
+
+
+    </script>
+    <style type="text/css">
+        .content {
+            background: transparent;
+        }
+
+        .page-header {
+            background: transparent;
+            position: fixed;
+            left: 25px;
+            border: none;
+            height: 600px;
+            width: 220px;
+            overflow: auto;
+        }
+
+        .docuframe {
+            width: 900px;
+            height: 1280px;
+            margin: 0px auto;
+            padding: 0px;
+            background-image: url("<%= @page.blank_form.url(:medium) %>");
+            background-repeat: no-repeat;
+            margin-left: 220px
+        }
+
+        .component_icon {
+            cursor: pointer;
+        }
+
+        .selected_icon {
+            margin-left: 30px;
+        }
+
+        .selectiondiv {
+            position: absolute;
+            zIndex: 5000;
+            border: 1px solid black
+        }
+	.plus-sign{
+	cursor: pointer;
+	}
+    </style>
+
+<% end %>
+
+
+
+<div class="page-header" style="position:fixed; color:white;font-weight: bold;margin-top: 20px">
+  <%= link_to image_tag('save.png', :size => '40x40'), "#", :class => "btn-success btn", :id => 'save_button' %>
+  <br/>
+  <br/>
+
+  <% @component_types.each do |component_type| %>
+      <div id="<%= component_type.id %>" title="<%= component_type.name %>" class="component_icon" style="margin-bottom: 5px;">
+
+        <%= link_to component_type.name, "#", :class => 'span2 btn-primary btn' %>
+        <br>
+        <br>
+      </div>
+  <% end %>
+
+
+  <br/>
+  <%= link_to "Back",view_document_pages_path(@docket.id,@document.id),:class=>"btn-warning btn" %>
+</div>
+
+<div class="row" style="text-align: center; background: transparent">
+  <div id="DocumentFrame" class="docuframe">
+  </div>
+
+  <% @blank_sections.each do |blank_section| %>
+      <div id="<%= blank_section.id %>"
+           class="selectiondiv"
+           style=
+                   "       position:absolute;
+                           z-index:5000;
+                           top:<%= blank_section.ypos %>px;
+                           left:<%= blank_section.xpos %>px;
+                           width:<%= blank_section.width %>px;
+                           height:<%= blank_section.height %>px;
+                   ">
+
+        <div class='ui-widget-header' title='<%= Component.find(blank_section.component_id).name %>' style='margin: 3px;'>
+          <%= ComponentType.find_by_name(blank_section.component.name.split(" - ").first).name %>
+
+
+          <a href='#' onclick='$(this).parent().parent().remove();' class='pull-right' style='font-size: 12px;color:white;margin-right: 3px;'>x</a>
+          <a href='#' onclick='show_spec($(this))' class='pull-right' style='font-size: 12px;color:black;margin-right: 3px;'>+</a>
+
+        </div>
+        <div class='white_box_text'> <%= blank_section.component.name %></div>
+        <% component_parts=blank_section.component.name.split(" - ") %>
+        <% @component_type=ComponentType.find_by_name(blank_section.component.name.split(" - ").first) %>
+        <div id="type_<%= @component_type.id %>" class="c_type" style="visibility:hidden;background:grey;text-align:left" >
+          <%@component_type.component_specs.each do |s_specs| %>
+             <% if component_parts.include?(s_specs.name)%>
+                  <% status=true %>
+                  <% else %>
+
+                  <% status=false %>
+                  <% end %>
+             <%= check_box_tag s_specs.name ,0,status,:class=>"spec_check_box"%> <%= s_specs.name %> <br>
+          <% end %>
+
+        </div>
+      </div>
+
+  <% end %>
+  <%= hidden_field_tag :component_id, "", :id => "component_field" %>
+
+</div>

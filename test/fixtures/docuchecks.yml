@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  case_study_id: 1
+  document_id: 1
+  reference_set_id: 1
+
+two:
+  case_study_id: 1
+  document_id: 1
+  reference_set_id: 1

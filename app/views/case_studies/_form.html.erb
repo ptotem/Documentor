@@ -1,0 +1,67 @@
+<script type="text/javascript">
+    $(function () {
+        $("form").addClass("well");
+        //$("form").jqTransform();
+        $("textarea").attr("rows", "5");
+        //   $("textarea").attr("cols","35");
+        var tags_array=[];
+        <% @tags.each do |tag| %>
+        tags_array.push("<%= tag %>");
+
+        <% end %>
+        $("select").multiselect();
+
+        $("#tags").tagit({
+            availableTags: tags_array ,
+            selectedList: 4 // 0-based index
+
+
+
+        });
+
+
+    });
+
+</script>
+
+<style type="text/css">
+    .span3 {
+        rows: 5;
+        cols: 10;
+    }
+
+    .input {
+        width: 300px;
+    }
+</style>
+
+<%= semantic_form_for @case_study do |f| %>
+    <%= f.inputs do %>
+        <div class="row">
+          <div class="span5">
+            <%= f.input :name, :input_html => {:class => "span2"} %>
+            <%= f.input :briefing, :input_html => {:class => "span3"} %>
+
+
+            <%= f.input :products %>
+            <%= f.input :dockets %>
+            <%= f.label :tags %>
+            <!--<ul id="tags">-->
+
+            <!--</ul>-->
+
+            <%= f.inputs :tags %>
+
+
+
+
+        </div>
+        </div>
+    <% end %>
+
+
+
+    <%= f.buttons do %>
+        <%= f.commit_button %>
+    <% end %>
+<% end %>

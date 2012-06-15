@@ -1,0 +1,49 @@
+<script type="text/javascript">
+    $(function() {
+    })
+</script>
+
+<style>
+    .slide {
+        position: relative;
+        height: <%= @slide_height %>px;
+        width: <%= @slide_width %>px;
+        overflow: hidden;
+        border: 5px solid black;
+        border-radius: 20px;
+    <% if @back == "" %> background: <%= @back_gradient_1 %>; /* Old browsers */
+        background: -moz-linear-gradient(left,  <%= @back_gradient_1 %> 0%, <%= @back_gradient_2 %> 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, right top, color-stop(0%,<%= @back_gradient_1 %>), color-stop(100%,<%= @back_gradient_2 %>)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(left,  <%= @back_gradient_1 %> 0%,<%= @back_gradient_2 %> 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(left,  <%= @back_gradient_1 %> 0%,<%= @back_gradient_2 %> 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(left,  <%= @back_gradient_1 %> 0%,<%= @back_gradient_2 %> 100%); /* IE10+ */
+        background: linear-gradient(left,  <%= @back_gradient_1 %> 0%,<%= @back_gradient_2 %> 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '<%= @back_gradient_1 %>', endColorstr = '<%= @back_gradient_2 %>', GradientType = 1); /* IE6-9 */
+    <% else %> background: <%= @back %>;
+        background-size: <%= @slide_width %>px <%= @slide_height %>px;
+    <% end %>
+    }
+
+    #panelled_panel{
+    <% case @location.downcase %>
+    <% when "left" %>
+    left: -<%= @font_size %>px;
+    top: <%= @positiony %>px;
+    <% when "right" %>
+    right: -<%= @font_size %>px;
+    top: <%= @positiony %>px;
+    <% when "top" %>
+    top: -<%= @font_size %>px;
+    left: <%= @positionx %>px;
+    <% when "bottom" %>
+    bottom: -<%= @font_size %>px;
+    left: <%= @positionx %>px;
+    <% end %>
+    }
+</style>
+
+<div class="row slide">
+  <div id="panelled_panel" style="padding: 40px;border-radius:<%= @font_size %>px;background:<%= @panel_color %>;opacity:0.7;position:absolute;line-height: <%= @font_size.to_i*2 %>px;font-size: <%= @font_size.to_i * 1.5 %>px;text-align: center;font-weight: bold; width:<%= @width %>px;color:<%= @text_color %>;text-shadow: <%= @font_size.to_i/10 %>px <%= @font_size.to_i/10 %>px <%= @text_shadow %>;background-image:<%= @panel_image %>;">
+    <%= @title %>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<table class="table table-bordered">
+  <tr>
+    <th>Document Name</th>
+    <th></th>
+  </tr>
+
+  <% @docuchecks.each do |docu| %>
+      <tr>
+        <td><%= Document.find(docu.document_id).name %></td>
+        <td><%= link_to "Practice",practice_document_path(:docucheck_id=>docu.id) %></td>
+      </tr>
+
+
+  <% end %>
+</table>

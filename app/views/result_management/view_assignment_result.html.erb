@@ -1,0 +1,19 @@
+<h3>You have the following Assignments :</h3>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Quiz</th>
+    <th>Result</th>
+    <th></th>
+
+
+  </tr>
+
+      <tr>
+        <td>Quiz</td>
+        <td><%= Quiz.find_by_assignment_id(@assignment.id).score%></td>
+        <td><%= link_to "View Results",view_assignment_result_path(:assignment_id=>@assignment.id) %></td>
+
+      </tr>
+
+</table>

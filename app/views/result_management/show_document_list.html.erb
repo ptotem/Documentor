@@ -1,0 +1,38 @@
+<h3>Documents : <%= link_to @docket.name, show_docket_list_path(@case_study.id) %></h3>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Document Name</th>
+    <th>Total Sections </th>
+    <th>Number Of Sections Correct </th>
+    <th>Number Of Sections In-Correct </th>
+    <th>Document Score</th>
+    <th>Pages</th>
+
+    <th></th>
+
+
+  </tr>
+  <% @documents.each_with_index.each do |document, index| %>
+       <% if !DocketsDocument.find_by_docket_id_and_document_id(@docket.id,document.id).reference_document?%>
+      <tr>
+
+        <td><%= document.name %></td>
+        <% count=0 %>
+        <% document.pages.each do |page| %>
+            <% count=count+page.blank_sections.count %>
+        <% end %>
+
+        <td><%= count %></td>
+        <td><%= Docucheck.find_by_document_id_and_assignment_id(document.id,@assignment.id).score %></td>
+        <td><%= count- Docucheck.find_by_document_id_and_assignment_id(document.id,@assignment.id).score %></td>
+
+
+        <td><%= sprintf'%.2f', (Docucheck.find_by_document_id_and_assignment_id(document.id,@assignment.id).score/count.to_f)*100 %>%</td>
+        <td><%= link_to "Show Pages", show_corrected_page_path(@assignment.id, @docket.id, Docucheck.find_by_document_id_and_assignment_id(document.id,@assignment.id).id, document.pages.first.id) %></td>
+
+      </tr>
+  <% end %>
+  <% end %>
+
+</table>

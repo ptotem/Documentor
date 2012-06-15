@@ -1,0 +1,17 @@
+<table class="table table-bordered">
+  <tr>
+    <th>Docket List</th>
+    <th></th>
+  </tr>
+
+  <% @dockets.each do |docket| %>
+      <tr>
+        <td><%= docket.name %></td>
+        <td><%= link_to "View Documents",list_documents_path(@assignment.id,docket.id) %></td>
+      </tr>
+  <% end %>
+
+
+</table>
+
+<%= link_to "Back",test_landing_page_path,:class=>"btn btn-info" %>

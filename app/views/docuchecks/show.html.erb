@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Case study:</b>
+  <%= @docucheck.case_study_id %>
+</p>
+
+<p>
+  <b>Document:</b>
+  <%= @docucheck.document_id %>
+</p>
+
+<p>
+  <b>Reference set:</b>
+  <%= @docucheck.reference_set_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_docucheck_path(@docucheck) %> |
+<%= link_to 'Back', docuchecks_path %>

@@ -1,0 +1,19 @@
+<%= semantic_form_for @question do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :concept_id %>
+    <%= f.input :docket_id %>
+    <%= f.input :statement %>
+    <%= f.input :optiona %>
+    <%= f.input :optionb %>
+    <%= f.input :optionc %>
+    <%= f.input :optiond %>
+    <%= f.input :optionacorrect %>
+    <%= f.input :optionbcorrect %>
+    <%= f.input :optionccorrect %>
+    <%= f.input :optiondcorrect %>
+  <% end %>
+
+  <%= f.buttons do %>
+    <%= f.commit_button %>
+  <% end %>
+<% end %>

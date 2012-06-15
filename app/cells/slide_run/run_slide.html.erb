@@ -1,0 +1,172 @@
+<%= javascript_include_tag "jquery.min" %>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#slidorion').slidorion({
+            speed: 1000,
+            interval: 4000,
+            effect: 'slideLeft'
+        });
+    });
+
+
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#slidorion').slidorion();
+    });
+
+</script>
+
+<%= javascript_include_tag "jquery.easing" %>
+<%= javascript_include_tag "jquery.slidorion" %>
+<%= stylesheet_link_tag "reset" %>
+<%= stylesheet_link_tag "slidorion" %>
+<%= stylesheet_link_tag "style" %>
+
+
+
+
+<style>
+
+
+        /* Slidorion Stylesheet */
+    #slidorion {
+        width: 768px; /* Set to slidorion width. Is equal to #slider + #accordion width */
+        height: 400px; /* Set to slidorion height. Is equal to #slider and #accordion height */
+        position: relative;
+        left: 50%;
+        margin-left: -384px;
+        padding: 10px;
+        background: #cbcbcb;
+        border: 1px solid #bbb;
+        -webkit-box-shadow: 0 0 34px #bbb;
+        -moz-box-shadow: 0 0 34px #bbb;
+        box-shadow: 0 0 34px #bbb;
+    }
+
+    #slider {
+        width: 488px; /* Set to slider width */
+        height: 400px; /* Set to slider height */
+        position: relative;
+        float: left;
+        overflow: hidden; /* Hides the animations */
+    }
+
+    #slider > div {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    #accordion {
+        width: 280px; /* Set to accordion width */
+        height: 400px; /* Set to image height */
+        font-family: Verdana;
+        background: #eee;
+        -webkit-box-shadow: -3px 0px 3px -1px rgba(51, 51, 51, 0.3);
+        -moz-box-shadow: -3px 0px 3px -1px rgba(51, 51, 51, 0.3);
+        box-shadow: -3px 0px 3px -1px rgba(51, 51, 51, 0.3);
+        position: relative;
+        z-index: 999;
+        overflow: hidden;
+        float: left;
+    }
+
+    #accordion > .link-header {
+        padding: 8px 14px;
+        font-size: 12px;
+        font-weight: bold;
+        color: #333;
+        background: #ededed;
+        background: -moz-linear-gradient(top, #ededed 59%, #dcdcdc 100%);
+        background: -webkit-linear-gradient(top, #ededed 59%, #dcdcdc 100%);
+        background: -o-linear-gradient(top, #ededed 59%, #dcdcdc 100%);
+        background: -ms-linear-gradient(top, #ededed 59%, #dcdcdc 100%);
+        background: linear-gradient(top, #ededed 59%, #dcdcdc 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ededed', endColorstr = '#dcdcdc', GradientType = 0);
+        border-top: 1px solid #ccc;
+    }
+
+    #accordion > .link-header:first-child {
+        border-top: none;
+    }
+
+    #accordion > .link-header:hover {
+        background: #ededed;
+        cursor: pointer;
+    }
+
+    #accordion > .link-header.active {
+        border-bottom: none;
+        background: #676767 !important;
+        color: #fff;
+    }
+
+    #accordion > .link-content {
+        height: 257px; /* This height needs to be changed as it depends on the accordion height and number of tabs */
+        font-weight: normal;
+        font-size: 13px;
+        line-height: 20px;
+        margin: 0;
+        padding: 16px;
+        border: none;
+        background: #d6d6d6;
+        background: -moz-linear-gradient(top, #d6d6d6 0%, #ffffff 10%);
+        background: -webkit-linear-gradient(top, #d6d6d6 0%, #ffffff 10%);
+        background: -o-linear-gradient(top, #d6d6d6 0%, #ffffff 10%);
+        background: -ms-linear-gradient(top, #d6d6d6 0%, #ffffff 10%);
+        background: linear-gradient(top, #d6d6d6 0%, #ffffff 10%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#d6d6d6', endColorstr = '#ffffff', GradientType = 0);
+        overflow: auto;
+    }
+
+</style>
+
+<div class="row slide">
+  <div style="line-height: <%= @font_size.to_i*3 %>px;font-size: <%= @font_size.to_i * 1.5 %>px;text-align: center;font-weight: bold; margin-top: 30px; margin-bottom: 50px;background-image: url('assets/inner_texture.jpeg');color:white;">
+    <%= @title %>
+  </div>
+  <div id="slidorion">
+    <div id="slider">
+
+      <% @images.each_with_index do |each_image, index| %>
+          <div id="slide<%= index %>" class="slide_demo">
+            <a href="<%= each_image[0] %>"/><img src="<%= each_image[0] %>" alt=""></a>
+          </div>
+      <% end %>
+
+
+    </div>
+
+    <div id="accordion">
+      <% @images.each_with_index do |each_image, index| %>
+          <div class="link-header"><%= each_image[2] %></div>
+          <div class="link-content">
+            <p><%= each_image[1] %></p>
+
+          </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<style type="text/css">
+    .slide {
+        height: <%= @slide_height %>px;
+        width: <%= @slide_width %>px;
+        border: 5px solid black;
+        border-radius: 20px;
+    <% if @back == "" %> background: <%= @back_gradient_1 %>; /* Old browsers */
+        background: -moz-linear-gradient(left,  <%= @back_gradient_1 %> 0%, <%= @back_gradient_2 %> 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, right top, color-stop(0%,<%= @back_gradient_1 %>), color-stop(100%,<%= @back_gradient_2 %>)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(left,  <%= @back_gradient_1 %> 0%,<%= @back_gradient_2 %> 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(left,  <%= @back_gradient_1 %> 0%,<%= @back_gradient_2 %> 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(left,  <%= @back_gradient_1 %> 0%,<%= @back_gradient_2 %> 100%); /* IE10+ */
+        background: linear-gradient(left,  <%= @back_gradient_1 %> 0%,<%= @back_gradient_2 %> 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '<%= @back_gradient_1 %>', endColorstr = '<%= @back_gradient_2 %>', GradientType = 1); /* IE6-9 */
+    <% else %> background: <%= @back %>;
+    <% end %>
+    }
+</style>

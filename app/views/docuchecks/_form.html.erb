@@ -1,0 +1,11 @@
+<%= semantic_form_for @docucheck do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :case_study_id %>
+    <%= f.input :document_id %>
+    <%= f.input :reference_set_id %>
+  <% end %>
+
+  <%= f.buttons do %>
+    <%= f.commit_button %>
+  <% end %>
+<% end %>

@@ -1,0 +1,31 @@
+<style type="text/css">
+    a {
+        color: #000000;
+    }
+</style>
+
+<div class="row">
+
+  <div class="span2">
+    &nbsp;
+    <% if @slide_number>0 %>
+        <%= link_to "Previous", view_slide_path(:concept_id => @concept.id, :slide_number => @slide_number-1) %>
+    <% end %>
+  </div>
+
+  <div class="span10">
+    <%= raw @slide.html_block %>
+  </div>
+
+  <div class="span2">
+    &nbsp;
+
+    <% if @slide_number!=(@slides.count-1) %>
+        <%= link_to "Next", view_slide_path(:concept_id => @concept.id, :slide_number => @slide_number+1) %>
+    <% end %>
+  </div>
+
+</div>
+
+<h4><%= link_to "End Show", user_path %></h4>
+

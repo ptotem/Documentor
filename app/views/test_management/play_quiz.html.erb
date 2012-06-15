@@ -1,0 +1,52 @@
+  <div class="hero-unit blocky">
+    <h1 style="color:white">Quick Quiz</h1>
+    <p style="color:white">Why don't we check whether we remember everything we learnt?</p>    
+  </div>
+
+  <%= form_tag :action => 'save_quiz_data' %>
+  <%= hidden_field_tag :quiz_id, @quiz.id %>
+  <%= hidden_field_tag :assignment_id, @assignment.id %>
+
+
+  <table class="table table-bordered">
+    <tr>
+      <th class="header-row">Question</th>
+      <th class="header-row">Options</th>
+
+    </tr>
+    <% @questions.each do |question| %>
+    <tr>
+      <td style="font-size: 14px">
+
+        <b><%= question.statement %></b>
+        <td style="font-size: 14px">
+
+          <% if !question.optiona.blank? %>
+          <%= radio_button_tag "#{question.id}", 1 %>
+          <b>  <%= question.optiona %></b>
+          <br>
+          <% end %>
+
+
+          <% if !question.optionb.blank? %>
+          <%= radio_button_tag "#{question.id}", 2 %>
+          <b>  <%= question.optionb %></b>
+          <br>
+          <% end %>
+
+          <% if !question.optionc.blank? %>
+          <%= radio_button_tag "#{question.id}", 3 %>
+          <b><%= question.optionc %></b>
+
+          <br>
+          <% end %>
+
+          <% if !question.optiond.blank? %>
+          <%= radio_button_tag "#{question.id}", 4 %>
+          <b><%= question.optiond %></b>
+          <% end %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+    <%= submit_tag "On to the Docu-checking", :class => "btn-danger btn-large" %>

@@ -1,0 +1,30 @@
+<script type="text/javascript">
+    $(function () {
+
+        $('input:checkbox:not([safari])').checkbox();
+
+
+    });
+
+</script>
+
+
+<%= form_tag @assignment do |f| %>
+    <br>
+    <br>
+
+    <% User.all.each do |user| %>
+        <label>
+          <% if Assignment.find_by_user_id_and_case_study_id(user.id, @case_study.id) %>
+              <% @state=true %>
+          <% else %>
+              <% @state=false %>
+          <% end %>
+          <%= check_box_tag "#{user.id}", user.id, @state %> <%= user.email %>
+        </label>
+
+    <% end %>
+    <%= hidden_field_tag :case_study_id, @case_study.id %>
+
+    <%= submit_tag %>
+<% end %>

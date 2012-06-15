@@ -1,0 +1,43 @@
+<h1>Listing questions</h1>
+
+<table>
+  <tr>
+    <th>Concept</th>
+    <th>Docket</th>
+    <th>Statement</th>
+    <th>Optiona</th>
+    <th>Optionb</th>
+    <th>Optionc</th>
+    <th>Optiond</th>
+    <th>Optionacorrect</th>
+    <th>Optionbcorrect</th>
+    <th>Optionccorrect</th>
+    <th>Optiondcorrect</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @questions.each do |question| %>
+  <tr>
+    <td><%= question.concept_id %></td>
+    <td><%= question.docket_id %></td>
+    <td><%= question.statement %></td>
+    <td><%= question.optiona %></td>
+    <td><%= question.optionb %></td>
+    <td><%= question.optionc %></td>
+    <td><%= question.optiond %></td>
+    <td><%= question.optionacorrect %></td>
+    <td><%= question.optionbcorrect %></td>
+    <td><%= question.optionccorrect %></td>
+    <td><%= question.optiondcorrect %></td>
+    <td><%= link_to 'Show', question %></td>
+    <td><%= link_to 'Edit', edit_question_path(question) %></td>
+    <td><%= link_to 'Destroy', question, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Question', new_question_path %>

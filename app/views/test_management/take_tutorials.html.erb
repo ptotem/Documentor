@@ -1,0 +1,19 @@
+<table class="table table-bordered">
+
+
+  <tr>
+    <th>Concept Name</th>
+    <th></th>
+
+  </tr>
+  <% @concepts.each do |concept| %>
+  <tr>
+    <td><%= concept.name %></td>
+    <td><%= link_to "View Slide",view_slide_path(:concept_id=>concept.id) %></td>
+  </tr>
+  <% end %>
+
+
+
+
+</table>

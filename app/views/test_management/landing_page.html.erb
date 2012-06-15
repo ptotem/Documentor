@@ -1,0 +1,41 @@
+<h3>You have the following Assignments :</h3>
+
+<table class="table table-bordered">
+  <tr>
+    <th> Name</th>
+    <th>Briefing</th>
+    <th></th>
+    <th></th>
+    <th>Quiz Status</th>
+    <th>Document Status</th>
+
+
+  </tr>
+  <% @assignments.each_with_index.each do |assignment, index| %>
+
+      <% if !assignment.practice? %>
+      <tr>
+        <td><%= CaseStudy.find(assignment.case_study_id).name %></td>
+        <td><%= CaseStudy.find(assignment.case_study_id).briefing %></td>
+         <% if @played_doc[assignment.id]>0 %>
+        <td><%= link_to image_tag('start_test.png', :size => "40x40"), play_quiz_path(:assignment_id => assignment.id), :title => "Start the test" %></td>
+            <% else %>
+        <td>Nothing do do.yay!!</td>
+            <% end %>
+        <td><%= link_to image_tag('tutorials.jpeg', :size => "40x40"), take_tutorials_path(:assignment_id => assignment.id), :title => "View Tutorials" %></td>
+        <td>
+           <%= @status[assignment.id] %>
+         </td>
+        <td>
+
+          <%= "#{@played_doc[assignment.id].to_s} Document(s) left" %>
+
+
+        </td>
+
+      </tr>
+          <%end %>
+  <% end %>
+
+</table>
+<%= link_to "Back",user_path,:class=>"btn btn-info" %>

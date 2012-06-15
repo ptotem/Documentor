@@ -1,0 +1,79 @@
+<!-- First set the slide size -->
+
+<% @slide_height = 350 %>
+<% @slide_width = 640 %>
+
+<!------------------------------------------------------------------------------------->
+
+<!-- Title Slide -->
+
+<!--Put in the title text-->
+
+
+<!--Call the renderer-->
+<% if params["slide_layout"]=="1" %>
+
+    <%= render_cell :title_slide,
+                    :panelled, # Can be no_anim or panelled
+                    :slide_height => @slide_height, # The slide height
+                    :slide_width => @slide_width, # The slide height
+                    :title => @slidetitle, # Can be blank
+                    :positionx => @xpos, # X-Position of Title
+                    :positiony => @ypos, # Y-Position of Title
+                    :location => 'top', # Can be left, right, top or bottom. Position x & y are used.
+                    :width => @width, # Width of Title
+                    :font_size => @fontsize, # Font-size of the text
+                    :text_color => 'white', # Color of the text
+                    :panel_color => 'red', # Color of the panel
+                    :panel_image => '/assets/fantasy.jpg', # Image on the panel
+                    :text_shadow => 'gray', # Color of the text shadow
+                    #:back_gradient_1=>'#0099ff',           # 'From'color when using CSS gradient for the slide background
+                    #:back_gradient_2=>'#003399',           # 'To'color when using CSS gradient for the slide background
+                    :back_image => '/assets/fantasy.jpg',     # Background Image, lower priority than gradient
+        #:back_color=>'white'                   # Background color, lower priority than background image
+    %>
+<% elsif params["slide_layout"]=="2" %>
+
+    <%= render_cell :photo_and_bullet_list,
+                    :no_anim, # Can be :no_anim,:no_anim_flipped, :sliding_anim, :sliding_anim_flipped
+                    :slide_height => @slide_height, # The slide height
+                    :slide_width => @slide_width, # The slide width
+                    :title => 'Any Title', # Can be blank
+                    :banner_img => '/assets/short-term-loans.png', # The Photo
+                    :list_items => @bullets, # The Array of Bullets
+                    :font_size => '18', # Font-size of the bullet text
+                    :text_color => 'black', # Color of the bullet text
+                    :bullet_img => '/assets/bullet-1.png', # Image to use for bullet
+                    #:back_gradient_1=>'#0099ff',                    # 'From'color when using CSS gradient for the slide background
+                    #:back_gradient_2=>'#003399',                    # 'To'color when using CSS gradient for the slide background
+                    #:back_image=>'/assets/ljk.jpg',                 # Background Image, lower priority than gradient
+                    :back_color => 'white'                            # Background color, lower priority than background image
+    %>
+
+<% elsif params["slide_layout"]=="3" %>
+
+
+    <%= render_cell :slide_run,
+                    :run_slide, # Can be :full_slide or :with_text or :with_bullets
+                    :slide_height => @slide_height, # The slide height
+                    :slide_width => @slide_width, # The slide width
+                    :title => @slide_title, # Can be blank
+                    #:slide_text=>@slide_text,               # The Slide Text to add
+                    #:text_width=>'280',                       # The Slide Text width
+                    #:list_items=>@bullets,                  # The Array of Bullets
+                    #:bullet_img=>'/assets/bullet-1.png',    # Image to use for bullet
+                    :font_size => @font_size, # Font-size of the text
+                    #:text_color=>'black',                            # Color of the text
+                    #:table_height=>'550',                          # The Height of the Table of flash cards
+                    #:table_width=>'550',                          # The Width of the Table of flash cards
+                    #:cols=>'2',                                         # No. of columns in the Table of flash cards
+                    #:rows=>'2',                                       # No. of rows in the Table of flash cards
+                    :images => @images, # The Array of Flash Cards
+                    #:flip_style=>'vertical',                # Can be 'vertical' or 'horizontal'
+                    :back_gradient_1 => '#0099ff', # 'From'color when using CSS gradient for the slide background
+                    :back_gradient_2 => '#003399', # 'To'color when using CSS gradient for the slide background
+                    :back_image => '/assets/ljk.jpg', # Background Image, lower priority than gradient
+                    :back_color => 'white'                    # Background color, lower priority than background image
+    %>
+
+<% end %>

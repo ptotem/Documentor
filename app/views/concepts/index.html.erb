@@ -1,0 +1,24 @@
+<h1>Listing concepts</h1>
+
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @concepts.each do |concept| %>
+  <tr>
+    <td><%= concept.name %></td>
+    <td><%= concept.description %></td>
+
+    <td><%= link_to "Add Slide" ,slide_path(:concept_id=>concept.id)%></td>
+    <td><%= link_to "View Slides" ,view_slide_path(:concept_id=>concept.id)%></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+

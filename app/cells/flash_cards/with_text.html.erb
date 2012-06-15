@@ -1,0 +1,127 @@
+<script type="text/javascript">
+    $(function() {
+        $('ul.hover_block li').hover(function() {
+            $(this).find('img').animate({top:'182px'}, {queue:false,duration:200});
+        }, function() {
+            $(this).find('img').animate({top:'0px'}, {queue:false,duration:200});
+        });
+        $('ul.hover_block2 li').hover(function() {
+            $(this).find('img').animate({left:'300px'}, {queue:false,duration:200});
+        }, function() {
+            $(this).find('img').animate({left:'0px'}, {queue:false,duration:200});
+        });
+    });
+</script>
+
+<style>
+    .slide {
+        height: <%= @slide_height %>px;
+        width: <%= @slide_width %>px;
+        border-radius: 20px;
+        border: 5px solid black;
+    <% if @back == "" %> background: <%= @back_gradient_1 %>; /* Old browsers */
+        background: -moz-linear-gradient(left,  <%= @back_gradient_1 %> 0%, <%= @back_gradient_2 %> 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, right top, color-stop(0%,<%= @back_gradient_1 %>), color-stop(100%,<%= @back_gradient_2 %>)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(left,  <%= @back_gradient_1 %> 0%,<%= @back_gradient_2 %> 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(left,  <%= @back_gradient_1 %> 0%,<%= @back_gradient_2 %> 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(left,  <%= @back_gradient_1 %> 0%,<%= @back_gradient_2 %> 100%); /* IE10+ */
+        background: linear-gradient(left,  <%= @back_gradient_1 %> 0%,<%= @back_gradient_2 %> 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '<%= @back_gradient_1 %>', endColorstr = '<%= @back_gradient_2 %>', GradientType = 1); /* IE6-9 */
+    <% else %>
+        background: <%= @back %>;
+    <% end %>
+    }
+
+        /* For Flash Cards*/
+
+    ul.hover_block {
+        display: block;
+        overflow: hidden;
+        height: 1%;
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+    }
+
+    ul.hover_block li, ul.hover_block2 li {
+        list-style: none;
+        float: left;
+        background: #fff;
+        padding: 10px;
+        width: <%= (@table_width.to_i-55*@cols.to_i)/@cols.to_i %>px;
+        position: relative;
+        margin-right: 20px;
+    }
+
+    ul.hover_block li a, ul.hover_block2 li a {
+        display: block;
+        position: relative;
+        overflow: hidden;
+        height: <%= (@table_height.to_i-220)/(@rows.to_i) %>px;
+        width: <%= (@table_width.to_i-55*@cols.to_i)/@cols.to_i %>px;
+        /*padding: 16px;*/
+        color: #000;
+        font: 1.6em/1.3 Helvetica, Arial, sans-serif;
+    }
+
+    ul.hover_block li a, ul.hover_block2 li a {
+        text-decoration: none;
+    }
+
+    ul.hover_block li img, ul.hover_block2 li img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: 0;
+        width: <%= (@table_width.to_i-55*@cols.to_i)/@cols.to_i %>px;
+        height: <%= (@table_height.to_i-220)/(@rows.to_i) %>px;
+
+    }
+
+
+</style>
+
+
+
+<div class="row slide" style="margin-bottom: 30px;">
+  <div style="line-height: <%= @font_size.to_i*3 %>px;font-size: <%= @font_size.to_i * 1.5 %>px;text-align: center;font-weight: bold; margin-top: 30px; margin-bottom: 30px;background-image: url('assets/inner_texture.jpeg');color:white;">
+    <%= @title %>
+  </div>
+
+  <div style="width:<%= @text_width %>px;float:left; padding: 20px;margin-right: 20px;margin-left: 20px;color:<%= @text_color %>;font-size: <%= @font_size %>px;line-height: <%= @font_size %>px;">
+    <%= raw(@slide_text) %>
+  </div>
+
+  <div style="text-align: center;float:left;">
+    <% @colcount=0 %>
+    <% @flip_images.each do |flip_image| %>
+        <% if @colcount==0 %>
+            <% if @left_right %>
+                <ul class="hover_block2">
+            <% else %>
+                <ul class="hover_block">
+            <% end %>
+            <li>
+              <a href="<%= flip_image[1] %>">
+                <img src="assets/<%= flip_image[0] %>"/>
+                <%= flip_image[2] %>
+              </a>
+            </li>
+            <% @colcount+=1 %>
+        <% else %>
+            <li>
+              <a href="<%= flip_image[1] %>">
+                <img src="assets/<%= flip_image[0] %>"/>
+                <%= flip_image[2] %>
+              </a>
+            </li>
+            <% if @colcount==@cols.to_i-1 %>
+                <% @colcount=0 %>
+                </ul>
+            <% else %>
+                <% @colcount+=1 %>
+            <% end %>
+        <% end %>
+    <% end %>
+  </div>
+
+</div>

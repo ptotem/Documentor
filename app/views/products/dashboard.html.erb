@@ -1,0 +1,136 @@
+<%= content_for :head do %>
+    <%= stylesheet_link_tag "exclusions/jquery_data_table" %>
+    <%= javascript_include_tag "exclusions/jquery.dataTables.min" %>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $('#searcher').dataTable({
+                "bJQueryUI":true,
+                "sPaginationType":"full_numbers"
+            });
+
+            $('form').submit(function () {
+                $('form').append("<input type='hidden' name='integrated_view' value='yes'> ");
+                return true;
+            });
+        })
+    </script>
+<% end %>
+
+<%= content_for :page_header do %>
+    <div class="pull-left" style="border: none;margin-left: 130px;margin-top: 60px;font-size: 48px;color:white;">
+      Products
+    </div>
+<% end %>
+
+<div class="row-fluid">
+
+  <div class="span2" style="text-align: center;margin-top: 30px;">
+    <br/>
+    <a href="#new_form" data-toggle="modal" data-backdrop="static" class="btn btn-info span2">
+      <h2 style="color:white;">Add New</h2>
+    </a>
+
+    <div id="new_form" class="modal hide fade">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal"> &times; </a>
+
+        <h3>Create new product</h3>
+      </div>
+      <div class="modal-body">
+        <%= render 'form' %>
+      </div>
+    </div>
+
+    <a href="#upload_form" data-toggle="modal" data-backdrop="static" class="btn btn-info span2">
+      <h2 style="color:white;">Upload</h2>
+    </a>
+
+    <div id="upload_form" class="modal hide fade">
+      <div class="modal-header">
+        <a class="close" data-dismiss="modal"> &times; </a>
+
+        <h3>Upload Excel File</h3>
+      </div>
+      <%= form_tag('/product/parse_save_from_excel', :multipart => true) do |f| %>
+          <div class="modal-body">
+            Select an Excel File :
+            <%= file_field_tag :excel_file %>
+          </div>
+
+          <div class="modal-footer">
+            <%= submit_tag 'Submit', :class => "large btn primary pull-left" %>
+          </div>
+      <% end -%>
+    </div>
+
+    <a href=" <%= new_product_path %>" class="add_new btn btn-info span2">
+      <h2 style="color:white;">Download</h2>
+    </a>
+
+  </div>
+
+  <div class="span9">
+    <table class="display pull-left span9" cellpadding="0" cellspacing="0" border="0" id="searcher">
+      <thead>
+      <tr>
+        <th style="text-align: left;">Name</th>
+        <th style="text-align: right;">Manage</th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @products.each do |product| %>
+          <tr>
+            <td style="vertical-align: middle;">
+              <a href="#show_details" data-toggle="modal" data-backdrop="static" style="font-size: 20px;"><%= product.name %></a>
+            </td>
+
+
+            <td class="options pull-right">
+              <a href="#edit_form" data-toggle="modal" class="btn-warning btn">Edit</a>
+              <%= link_to "Destroy", product, :confirm => 'Are you sure?', :method => :delete, :class => "btn-danger btn" %>
+              <%= link_to "Add Documents", "add_documents/#{product.id}", :class => "btn-warning btn" %>
+
+            </td>
+
+            <div id="edit_form" class="modal hide fade">
+              <div class="modal-header">
+                <a data-dismiss="modal" class="close"> &times; </a>
+
+                <h3>Edit a record</h3>
+              </div>
+              <div class="modal-body">
+                <%= render 'form'%>
+              </div>
+            </div>
+
+          </tr>
+
+
+          <div id="show_details" class="modal hide fade">
+            <div class="modal-header">
+              <a class="close" data-dismiss="modal"> &times; </a>
+
+              <h3>Product</h3>
+            </div>
+            <div class="modal-body">
+              <p>
+                <strong>Name:</strong>
+                <%= product.name %>
+              </p>
+
+            </div>
+
+            <div class="modal-footer">
+              <a class="close" data-dismiss="modal"> Back </a>
+            </div>
+          </div>
+      <%- end -%>
+      </tbody>
+    </table>
+
+  </div>
+
+</div>
+<br/>

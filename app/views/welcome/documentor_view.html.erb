@@ -1,0 +1,45 @@
+<%= content_for :head do %>
+    <style type="text/css">
+        .content {
+            /*background: transparent;*/
+        }
+    </style>
+<% end %>
+
+<%= content_for :page_header do %>
+
+<% end %>
+    <div class="row" style="height: 250px">
+      <div class="span6 offset2">
+        <table class="table">
+          <tr>
+            <td style="text-align: center">
+              <%= image_tag("docket.png", :size => "150x150") %>
+              <br>
+              <%= link_to "Dockets", docket_integrated_view_path, :class => "btn-warning btn span3 btn-large", :style => "text-align:centre" %>
+            </td>
+            <td style="text-align: center">
+              <%= image_tag("documents.png", :size => "150x150") %>
+              <br>
+              <%= link_to "Documents", document_sets_integrated_view_path, :class => "btn-warning btn span3 btn-large" %>
+            </td>
+            </tr>
+            <tr>
+            <td style="text-align: center">
+              <%= image_tag("department.png", :size => "150x150") %>
+              <br>
+              <%= link_to "Departments", department_management_path, :class => "btn-warning btn span3 btn-large" %>
+            </td>
+            <td style="text-align: center">
+              <%= image_tag("tests.png", :size => "150x150") %>
+              <br>
+              <%= link_to "Tests", test_integrated_view_path, :class => "btn-warning btn span3 btn-large" %>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+<div class="row">
+</div>
+
+<!-- /container -->

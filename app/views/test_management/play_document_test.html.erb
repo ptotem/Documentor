@@ -1,0 +1,170 @@
+<script type="text/javascript">
+
+$(function () {
+  $(".option_image").click(function (event) {
+
+            //if the image is marked correct..mark it incorrect
+            if ($(this).attr("class").search("btn-correct") != -1) {
+              $("." + $(this).attr("id")).css("visibility", "visible");
+              $("." + $(this).attr("id")).css("background", "transparent");
+              $(this).removeClass("btn-correct");
+                //   $(this).css("background","red");
+                $("." + $(this).attr("id")).attr("value", 0);
+
+              }
+
+            //if the image is incorrect...mark is correct
+            else {
+              $(this).addClass("btn-correct");
+              $("." + $(this).attr("id")).css("visibility", "hidden");
+                //   $(this).css("background","transparent");
+                $("." + $(this).attr("id")).attr("value", 1);
+              }
+
+
+            });
+
+});
+
+</script>
+
+<%= content_for :head do %>
+
+
+<style type="text/css">
+body{
+  background:gray;
+}    
+
+.navbar{
+  z-index:99999;
+}
+
+.page-header {
+  position: fixed;
+  height: 600px;
+  width: 180px;
+  overflow: auto;
+  margin:0;
+  padding:20px;
+  margin-left: -20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+
+.docuframe {
+  width: 900px;
+  height: 1080px;
+  margin: 10px auto;
+  padding: 0px;
+  background-image: url("<%= @page.blank_form.url(:medium) %>");
+  background-repeat: no-repeat;
+  margin-left: 220px;
+
+}
+
+.component_icon {
+  cursor: pointer;
+}
+
+.selected_icon {
+  margin-left: 30px;
+}
+
+.selectiondiv {
+  position: absolute;
+  zIndex: 5000;
+  border: 1px solid black
+}
+</style>
+
+<% end %>
+
+
+
+<div class="page-header blocky">
+  <%= form_tag :action => 'save_document_results' %>
+  <% @filled_sections.each do |filled_section| %>
+  <%= hidden_field_tag filled_section.id, 1, :class => filled_section.id %>
+
+
+  <% end %>
+  <%= hidden_field_tag :docucheck_id, @docucheck.id %>
+  <%= hidden_field_tag :sequence_number, @sequence_number %>
+
+
+  <%= submit_tag "Submit and Turn Page", :class => "btn-warning btn btn-large", :id => 'save_button' %>
+
+  <br>
+  <br>
+
+  <div style="background:white;">
+
+    <table>
+      <tr>
+        <th class="blocky wtxt" style="border-radius:0px;border:3px solid darkred;font-size:18px;padding-top:10px;padding-bottom:10px;">Reference Documents</th>
+      </tr>
+      <% @reference_documents.each do |ref_doc| %>
+      <tr>
+        <td style="border:3px solid darkred">
+          <%= link_to "#{ref_doc.name}", show_reference_doc_path(@docucheck.docket_id, ref_doc.id,1), :target => "_blank" %>
+          <br>
+          <br>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+
+  <br/>
+
+
+  <br/>
+</div>
+
+<div class="row" style="text-align: center; background: transparent">
+
+  <div id="DocumentFrame" class="docuframe">
+  </div>
+
+  <% @filled_sections.each do |filled_section| %>
+
+  <% blank_section=BlankSection.find(filled_section.blank_section_id) %>
+  <% @example= Example.find(filled_section.example_id) %>
+  <% if @example.is_image? %>
+  <img src="<%= Example.find(filled_section.example_id).example_image.url %>" class="btn-correct option_image" id="<%= filled_section.id %>"
+  style="     position :absolute;
+  z-index:5000;
+  top :<%= blank_section.ypos   %>px;
+  left: <%=  blank_section.xpos %>px;
+  width: <%= blank_section.width %>px;
+  height:<%= blank_section.height %>px;
+  padding-top: 15px
+
+  "/>
+
+  <% else %>
+  <p class="btn-correct option_image" id="<%= filled_section.id %>"
+   style="     position :absolute;
+   z-index:5000;
+   top :<%= blank_section.ypos   %>px;
+   left: <%=  blank_section.xpos %>px;
+   width: <%= blank_section.width %>px;
+   height:<%= blank_section.height %>px;
+   padding-top: 15px
+
+   "
+   >  <%= @example.text_content %></p>
+   <% end %>
+   <%= image_tag("cross.png", :style => "
+    position :absolute;
+    z-index:6000;
+    top :#{blank_section.ypos }px;
+    left: #{ blank_section.xpos }px;
+    visibility:hidden;
+    background:transparent
+    ", :class => filled_section.id, :size => "32x32") %>
+
+    <% end %>
+  </div>

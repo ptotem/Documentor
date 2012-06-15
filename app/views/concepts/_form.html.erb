@@ -1,0 +1,9 @@
+<%= semantic_form_for @concept do |f| %>
+  <%= f.inputs do %>
+    <%= f.input :name %>
+  <% end %>
+
+  <%= f.butto.ns do %>
+    <%= f.commit_button :button_html => {:class=>"btn btn-info btn-large", :style=>"padding:10px;font-weight:bolder"} %>
+  <% end %>
+<% end %>

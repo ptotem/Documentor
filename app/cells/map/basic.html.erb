@@ -1,0 +1,101 @@
+<style type="text/css">
+    .slide {
+        position: relative;
+        height: <%= @slide_height %>px;
+        width: <%= @slide_width %>px;
+        border-radius: 20px;
+        border: 5px solid black;
+    <% if @back == "" %> background: <%= @back_gradient_1 %>; /* Old browsers */
+        background: -moz-linear-gradient(left,  <%= @back_gradient_1 %> 0%, <%= @back_gradient_2 %> 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, right top, color-stop(0%,<%= @back_gradient_1 %>), color-stop(100%,<%= @back_gradient_2 %>)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(left,  <%= @back_gradient_1 %> 0%,<%= @back_gradient_2 %> 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(left,  <%= @back_gradient_1 %> 0%,<%= @back_gradient_2 %> 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(left,  <%= @back_gradient_1 %> 0%,<%= @back_gradient_2 %> 100%); /* IE10+ */
+        background: linear-gradient(left,  <%= @back_gradient_1 %> 0%,<%= @back_gradient_2 %> 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '<%= @back_gradient_1 %>', endColorstr = '<%= @back_gradient_2 %>', GradientType = 1); /* IE6-9 */
+    <% else %> background: <%= @back %>;
+    <% end %>
+    }
+
+    .window {
+        opacity: 0.8;
+        filter: alpha(opacity = 80);
+        z-index: 20;
+        position: absolute;
+        color: black;
+        padding-top: 0.9em;
+        font-size: 0.9em;
+        text-align: center;
+        background-color: white;
+    }
+
+    .window a{
+        text-decoration: none;
+        line-height: <%= @font_size.to_i*1.1 %>px;
+        font-size: <%= @font_size %>px;
+        color: <%= @text_color %>
+    }
+
+    <% @process_points.each do |point| %>
+    #window<%= point[0] %> {
+        left: <%= point[4] %>px;
+        top: <%= point[5] %>px;
+        width: <%= point[6] %>px;
+        height: <%= point[7] %>px;
+        color: <%= point[9] %>;
+
+        <% unless point[8]=="transparent" %>
+        border: 2px solid <%= point[8] %>;
+        background: <%= point[8] %>; /* Old browsers */
+        background: -moz-linear-gradient(-45deg,  <%= point[8] %> 0%, #000000 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,<%= point[8] %>), color-stop(100%,#000000)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(-45deg,  <%= point[8] %> 0%,#000000 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(-45deg,  <%= point[8] %> 0%,#000000 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(-45deg,  <%= point[8] %> 0%,#000000 100%); /* IE10+ */
+        background: linear-gradient(-45deg,  <%= point[8] %> 0%,#000000 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='<%= point[8] %>', endColorstr='#000000',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+        <% end %>
+
+    }
+
+    <% end %>
+
+</style>
+
+<script type="text/javascript">
+    $(function() {
+      <% @connections.each do |connection| %>
+        jsPlumb.connect({
+            source:'window<%= connection[0] %>',
+            target:'window<%= connection[2] %>',
+            paintStyle:{ lineWidth:3, strokeStyle: '<%= connection[4] %>' },
+            endpoint:"Blank",
+            <% if connection[5]=="Bezier" %>
+            connector:[ "Bezier", { curviness:50 }],
+            <% else %>
+            connector:"Straight",
+            <% end %>
+            anchors:["<%= connection[1]%>","<%= connection[3] %>"],
+            overlays:["Arrow"]
+        });
+      <% end %>
+      jsPlumb.draggable(jsPlumb.getSelector(".window"));
+    });
+</script>
+
+<div class="row slide" style="margin-bottom: 30px;">
+  <div style="line-height: <%= @font_size.to_i*3 %>px;font-size: <%= @font_size.to_i * 1.5 %>px;text-align: center;font-weight: bold; margin-top: 30px; margin-bottom: 30px;background-image: url('assets/inner_texture.jpeg');color:white;">
+    <%= @title %>
+  </div>
+
+  <% @process_points.each do |point| %>
+      <div class='window' id='window<%= point[0] %>'>
+        <a href="<%= point[2] %>">
+        <img src="assets/<%= point[1]%>" style="height:<%= point[7]%>px;"/>
+          <br/>
+        <%= point[3] %>
+        </a>
+      </div>
+  <% end %>
+
+</div>

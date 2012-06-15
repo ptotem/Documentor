@@ -1,0 +1,27 @@
+<h1>Listing docuchecks</h1>
+
+<table>
+  <tr>
+    <th>Case study</th>
+    <th>Document</th>
+    <th>Reference set</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @docuchecks.each do |docucheck| %>
+  <tr>
+    <td><%= docucheck.case_study_id %></td>
+    <td><%= docucheck.document_id %></td>
+    <td><%= docucheck.reference_set_id %></td>
+    <td><%= link_to 'Show', docucheck %></td>
+    <td><%= link_to 'Edit', edit_docucheck_path(docucheck) %></td>
+    <td><%= link_to 'Destroy', docucheck, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Docucheck', new_docucheck_path %>

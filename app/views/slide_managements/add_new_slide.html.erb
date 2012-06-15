@@ -1,0 +1,162 @@
+<script type="text/javascript">
+
+    $(function () {
+        $("form").submit(function () {
+            //      alert("hello");
+            $(".slide_content").attr("value", $(".slide").html());
+
+        });
+        var count = <%= @images.count %>;
+        <%= rcount=@images.count %>
+        $(".add_image").click(function () {
+            //       alert("helo");
+            count++;
+            <%= rcount=rcount+1 %>
+            //  alert(
+            <%= rcount %>);
+            $(".img_count").attr("value", count);
+            <% img_name="image"+rcount.to_s  %>
+            var text_area_name = "slidesc" + count.toString();
+
+            $(".image").append(" <label id=" + count + ">Image</label>" +
+                    <%= select_tag "#{img_name }", options_from_collection_for_select(SlideImage.all,'avatar', 'avatar') %>+
+                            "<label>Text</label>" +
+                    "<textarea rows='5' cols='20' placeholder='Description of your text' name=" + text_area_name + "></textarea>");
+
+            $("#" + count).next().attr("name", "image" + count);
+
+
+        });
+
+
+    });
+</script>
+
+<style type="text/css">
+    .row {
+        background: white;
+        height: 1024px;
+    }
+
+</style>
+
+<div class="row">
+  <div class="side-bar span4" style="border-right:1px solid black ">
+
+    <h2>Options</h2>
+    <br>
+
+
+    This is where you can <strong> set options </strong>
+    for your description text
+    <br>
+
+
+    <% if params["slide_layout"]=="1" %>
+        <!--this is the form for title slide-->
+        <form class="well" action="add_new_slide">
+          <label>Text</label>
+          <textarea rows="5" cols="20" placeholder="Description of your text" name="slidetitle" value="<%= @slidetitle %>"></textarea>
+
+          <label>X-Position</label>
+          <input type="text" class="span3" placeholder="Type something…" name="xpos" value=<%= @xpos %>>
+          <label>Y-Position</label>
+          <input type="text" class="span3" placeholder="Type something…" name="ypos" value=<%= @ypos %>>
+
+
+          <label>Position</label>
+          <select name="pos">
+            <option>top</option>
+            <option>bottom</option>
+            <option>left</option>
+            <option>right</option>
+
+          </select>
+          <label>Font Size</label>
+          <input type="text" class="span3" placeholder="Type something…" name="font-size" value=<%= @fontsize %>>
+          <label>Width</label>
+          <input type="text" class="span3" placeholder="Type something…" name="width" value=<%= @width %>>
+
+          <input type="hidden" name="slide_layout" value="1">
+          <input type="hidden" name="concept_id" value="<%= params[:concept_id] %>">
+
+          <button type="submit" class="btn">Submit</button>
+        </form>
+
+        <!--this is the form for bullet slide-->
+    <% elsif params["slide_layout"]=="2" %>
+
+        <form class="well" action="add_new_slide">
+
+          <label>Bullet-1</label>
+          <input type="text" class="span3" placeholder="Type something…" name="bull1" value=<%= @bullets[0] %>>
+          <label>Bullet-2</label>
+          <input type="text" class="span3" placeholder="Type something…" name="bull2" value=<%= @bullets[1] %>>
+          <label>Bullet-3</label>
+          <input type="text" class="span3" placeholder="Type something…" name="bull3" value=<%= @bullets[2] %>>
+          <label>Bullet-4</label>
+          <input type="text" class="span3" placeholder="Type something…" name="bull4" value=<%= @bullets[3] %>>
+          <label>Bullet-5</label>
+          <input type="text" class="span3" placeholder="Type something…" name="bull5" value=<%= @bullets[4] %>>
+          <input type="hidden" name="slide_layout" value="2">
+          <input type="hidden" name="concept_id" value="<%= params[:concept_id] %>">
+
+          <button type="submit" class="btn">Submit</button>
+        </form>
+
+
+        <!--this is the form for slidorion slide-->
+    <% elsif params["slide_layout"]=="3" %>
+        <form class="well" action="add_new_slide">
+          <label>Title</label>
+          <input type="text" class="span3" placeholder="Type something…" name="slide_title" value=<%= @slide_title %>>
+          <label>Font Size</label>
+          <input type="text" class="span3" placeholder="Type something…" name="font_size" value=<%= @font_size %>>
+          <input type="hidden" name="slide_layout" value="3">
+          <input type="hidden" name="concept_id" value="<%= params[:concept_id] %>">
+
+
+          <div class="image">
+            <% (@images.count).times do |c| %>
+                <label>Image</label>
+                <%= select_tag "image"+(c).to_s, options_from_collection_for_select(SlideImage.all, "avatar", "avatar") %>
+                <label>Text</label>
+                <textarea rows="5" cols="20" placeholder="Description of your text" name="slidesc"+<%= (c).to_s %>
+                value="<%= if @images.count>0 then @images[c][1]  end %>" ></textarea>
+
+            <% end %>
+          </div>
+          <input type="hidden" name="img_count" class="img_count" value=1>
+
+          <br>
+
+          <a href="#" class="add_image">Add Image</a>
+          <button type="submit" class="btn">Submit</button>
+
+
+        </form>
+
+
+    <% end %>
+
+  </div>
+
+
+  <div class="preview-pane span7">
+
+
+    <div class="slide">
+      <%= render :file => 'slide_managements/show_slide' %>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <%= form_tag :action => 'save_slide' %>
+    <%= hidden_field_tag "url", url_for(:only_path => false) %>
+    <%= hidden_field_tag "concept_id", params[:concept_id] %>
+    <%= hidden_field_tag "content_text", 0, :class => "slide_content" %>
+    <%= submit_tag "Save" %>
+  </div>
+</div>

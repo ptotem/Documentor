@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Concept:</b>
+  <%= @question.concept_id %>
+</p>
+
+<p>
+  <b>Docket:</b>
+  <%= @question.docket_id %>
+</p>
+
+<p>
+  <b>Statement:</b>
+  <%= @question.statement %>
+</p>
+
+<p>
+  <b>Optiona:</b>
+  <%= @question.optiona %>
+</p>
+
+<p>
+  <b>Optionb:</b>
+  <%= @question.optionb %>
+</p>
+
+<p>
+  <b>Optionc:</b>
+  <%= @question.optionc %>
+</p>
+
+<p>
+  <b>Optiond:</b>
+  <%= @question.optiond %>
+</p>
+
+<p>
+  <b>Optionacorrect:</b>
+  <%= @question.optionacorrect %>
+</p>
+
+<p>
+  <b>Optionbcorrect:</b>
+  <%= @question.optionbcorrect %>
+</p>
+
+<p>
+  <b>Optionccorrect:</b>
+  <%= @question.optionccorrect %>
+</p>
+
+<p>
+  <b>Optiondcorrect:</b>
+  <%= @question.optiondcorrect %>
+</p>
+
+
+<%= link_to 'Edit', edit_question_path(@question) %> |
+<%= link_to 'Back', questions_path %>

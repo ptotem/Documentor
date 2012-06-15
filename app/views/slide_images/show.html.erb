@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Slide image file name:</b>
+  <%= @slide_image.avatar.url %>
+</p>
+
+
+<%= link_to 'Edit', edit_slide_image_path(@slide_image) %> |
+<%= link_to 'Back', slide_images_path %>

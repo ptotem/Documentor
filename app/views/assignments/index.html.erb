@@ -1,0 +1,19 @@
+<h1>Listing Case Studies</h1>
+
+<table class="table table-striped table-bordered table-condensed">
+  <tr>
+    <th>Case study Name</th>
+    <th></th>
+  </tr>
+
+<% @case_studies.each do |case_study| %>
+  <tr>
+    <td><%= case_study.name %></td>
+    <td><%= link_to "Include Users",new_assignment_path(:case_study_id=>case_study.id) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+

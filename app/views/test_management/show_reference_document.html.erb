@@ -1,0 +1,113 @@
+<%= content_for :head do %>
+
+
+    <style type="text/css">
+        .content {
+            background: transparent;
+        }
+
+        .page-header {
+            background: transparent;
+            position: fixed;
+            left: 25px;
+            border: none;
+            height: 600px;
+            width: 220px;
+            overflow: auto;
+        }
+
+        .docuframe {
+            width: 900px;
+            height: 1080px;
+            margin: 10px auto;
+            padding: 0px;
+            background-image: url("<%= @page.blank_form.url(:medium) %>");
+            background-repeat: no-repeat;
+            margin-left: 220px
+
+        }
+
+        .component_icon {
+            cursor: pointer;
+        }
+
+        .selected_icon {
+            margin-left: 30px;
+        }
+
+        .selectiondiv {
+            position: absolute;
+            zIndex: 5000;
+            border: 1px solid black
+        }
+    </style>
+
+<% end %>
+
+
+
+
+<div class="page-header" style="position:fixed; color:white;font-weight: bold;margin-top: 20px">
+  <% if params[:page_number].to_i<@document.pages.count %>
+
+      <%= link_to "Next", show_reference_doc_path(@docket.id, @document.id, params[:page_number].to_i+1), :class => "btn-success btn" %>
+
+  <% end %>
+
+
+
+  <br>
+  <br>
+
+
+  <br/>
+
+
+  <br/>
+</div>
+
+<div class="row" style="text-align: center; background: transparent">
+
+  <div id="DocumentFrame" class="docuframe">
+  </div>
+
+  <% @filled_sections.each do |filled_section| %>
+
+      <% blank_section=BlankSection.find(filled_section.blank_section_id) %>
+      <% @example= Example.find(filled_section.example_id) %>
+      <% if @example.is_image? %>
+          <img src="<%= Example.find(filled_section.example_id).example_image.url %>" class="btn-correct option_image" id="<%= filled_section.id %>"
+               style="     position :absolute;
+                       z-index:5000;
+                       top :<%= blank_section.ypos   %>px;
+                       left: <%=  blank_section.xpos %>px;
+                       width: <%= blank_section.width %>px;
+                       height:<%= blank_section.height %>px;
+                       padding-top: 15px
+
+               "/>
+
+      <% else %>
+          <p class="btn-correct option_image" id="<%= filled_section.id %>"
+             style="     position :absolute;
+                     z-index:5000;
+                     top :<%= blank_section.ypos   %>px;
+                     left: <%=  blank_section.xpos %>px;
+                     width: <%= blank_section.width %>px;
+                     height:<%= blank_section.height %>px;
+                     padding-top: 10px
+
+             "
+          >  <%= @example.text_content %></p>
+      <% end %>
+      <%= image_tag("cross.jpeg", :style => "
+      position :absolute;
+           z-index:6000;
+           top :#{blank_section.ypos }px;
+      left: #{ blank_section.xpos }px;
+      visibility:hidden;
+      background:transparent
+      ", :class => filled_section.id, :size => "32x32") %>
+
+  <% end %>
+</div>

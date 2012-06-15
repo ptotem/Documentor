@@ -1,0 +1,83 @@
+<%= content_for :head do %>
+<style>
+.hero-unit {
+    background: #a7cfdf; /* Old browsers */
+    background: -moz-linear-gradient(-45deg,  #a7cfdf 0%, #23538a 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#a7cfdf), color-stop(100%,#23538a)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(-45deg,  #a7cfdf 0%,#23538a 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(-45deg,  #a7cfdf 0%,#23538a 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(-45deg,  #a7cfdf 0%,#23538a 100%); /* IE10+ */
+    background: linear-gradient(-45deg,  #a7cfdf 0%,#23538a 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', endColorstr='#23538a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+    border-radius:5px;
+
+}
+</style>
+<% end %>
+<div>
+	<br/>
+
+	<div id="sign_up_form" class="modal hide fade">
+		<div class="modal-header">
+			<a class="close" data-dismiss="modal"> &times; </a>
+
+			<h3>Sign Up</h3>
+		</div>
+		<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+		<div class="modal-body">
+			<div class="clearfix">
+				<%= f.label :email %>
+				<div class="input">  <%= f.email_field :email %></div>
+				<%= f.label :password %>
+				<div class="input">  <%= f.password_field :password %></div>
+				<%= f.label :re_enter %>
+				<div class="input">  <%= f.password_field :password_confirmation %></div>
+			</div>
+		</div>
+		<div class="modal-footer">
+			<div>
+				<%= f.submit "Sign up", :class => "btn btn-warning btn-large" %>
+			</div>
+		</div>
+		<% end %>
+	</div>
+
+</div>
+
+<div class="row-fluid">
+	<div class="span4">
+		<%= image_tag "logo.png", :class => "span4" %>
+	</div>
+	<div class="span7" style="margin-top:20px;">
+		<div class="hero-unit">
+			<div class="row-fluid">
+				<div class="span12">
+					<h1 style="color:white;">The Documentation Trainer</h1>
+					<br/>
+					<br/>
+
+					<div class="pull-right">
+						<% if !current_user %>
+						<div style="font-size: 20px;font-weight: bold;">
+							<a href="#sign_up_form" data-toggle="modal" data-backdrop="static" class="btn btn-warning btn-large">
+								Sign Up
+							</a>
+							<%= link_to "Know More", "#", :class => "btn btn-info btn-large" %>
+						</div>
+						<% else %>
+						<div style="color: #556b2f;font-size: 20px;font-weight: bold;">
+							<%= link_to "Enter", "#", :class => "btn btn-warning btn-large" %>
+							<%= link_to "Know More", "#", :class => "btn btn-info btn-large" %>
+						</div>
+						<% end %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<!-- /container -->
+

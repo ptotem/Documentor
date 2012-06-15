@@ -1,0 +1,35 @@
+<%= content_for :nav_bar do %>
+    <span style="position:absolute;  top: 8px;font-size: 17px"> :<%= link_to @document.name+" || ", show_document_list_path(@case_study.id, @docket.id) %>
+
+      <% @pages.each_with_index.each do |page, index| %>
+
+        <%= link_to page.name.gsub(".jpg", " | "), show_corrected_page_path(@case_study.id, @docket.id, @document.id, page.id) %>
+
+  <% end %>
+
+
+
+     </span>
+<% end %>
+
+<h3>Pages :</h3>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Page Name</th>
+    <th>Link</th>
+
+    <th></th>
+
+
+  </tr>
+  <% @pages.each_with_index.each do |page, index| %>
+
+      <tr>
+        <td><%= page.name %></td>
+        <td><%= link_to "Show Corrected Page", show_corrected_page_path(@case_study.id, @docket.id, @document.id, page.id) %></td>
+
+      </tr>
+  <% end %>
+
+</table>

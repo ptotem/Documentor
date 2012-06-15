@@ -1,0 +1,36 @@
+<%= content_for :page_header do %>
+    <span style="border: none;font-size: 40px;font-weight: bold;vertical-align: middle;text-align: left;width: 130px;color: white">DocuMentor</span>
+
+
+
+<% end %>
+
+<style type="text/css">
+  /*.span6{*/
+      /*height: 200px;*/
+  /*}*/
+
+</style>
+<div class="row">
+  <div class="span6">
+    <%= link_to image_tag('document.jpeg',:size => "200x200"), documents_path, :class => " span5",:title => "Manage Documents" %>
+  </div>
+  <div class="span6">
+    <%= link_to image_tag('concept.jpeg',:size => "200x200"), concepts_path, :class => "span5",:title => "Manage Concepts" %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span6">
+    <%= link_to image_tag('case-study.jpeg',:size => "200x200"), case_studies_path, :class => "span5",:title => "Manage Your Case Studies" %>
+  </div>
+  <div class="span6">
+    <%= link_to image_tag('assignment.jpeg',:size => "200x200"), assignments_path, :class => " span5",:title => "Manage Assignments" %>
+  </div>
+</div>
+
+
+
+
+
+

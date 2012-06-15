@@ -1,0 +1,61 @@
+<script type="text/javascript">
+    $(function() {
+    })
+</script>
+
+<style>
+    .slide {
+        height: <%= @slide_height %>px;
+        width: <%= @slide_width %>px;
+        border: 5px solid black;
+        border-radius: 20px;
+    <% if @back == "" %>
+        background: <%= @back_gradient_1 %>; /* Old browsers */
+        background: -moz-linear-gradient(left,  <%= @back_gradient_1 %> 0%, <%= @back_gradient_2 %> 100%); /* FF3.6+ */
+        background: -webkit-gradient(linear, left top, right top, color-stop(0%,<%= @back_gradient_1 %>), color-stop(100%,<%= @back_gradient_2 %>)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(left,  <%= @back_gradient_1 %> 0%,<%= @back_gradient_2 %> 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-linear-gradient(left,  <%= @back_gradient_1 %> 0%,<%= @back_gradient_2 %> 100%); /* Opera 11.10+ */
+        background: -ms-linear-gradient(left,  <%= @back_gradient_1 %> 0%,<%= @back_gradient_2 %> 100%); /* IE10+ */
+        background: linear-gradient(left,  <%= @back_gradient_1 %> 0%,<%= @back_gradient_2 %> 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='<%= @back_gradient_1 %>', endColorstr='<%= @back_gradient_2 %>',GradientType=1 ); /* IE6-9 */
+    <% else %>
+        background: <%= @back %>;
+    <% end %>
+    }
+/* Photo and Bullet List */
+
+ul.one-by-one {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+ul.one-by-one li {
+    background: no-repeat 0px 0px;
+    margin-bottom: 20px;
+}
+
+li.start-hidden {
+
+}
+
+</style>
+
+<div class="row slide">
+  <div style="line-height: <%= @font_size.to_i*3 %>px;font-size: <%= @font_size.to_i * 1.5 %>px;text-align: center;font-weight: bold; margin-top: 30px; margin-bottom: 50px;background-image: url('assets/inner_texture.jpeg');color:white;">
+    <%= @title %>
+  </div>
+
+  <div class="pull-right" style="text-align: center;margin-right: 20px;" >
+    <%= image_tag @banner_image, :style=>"border-radius:10px;max-height:320px;margin-bottom:50px;", :class=>"banner_image" %>
+  </div>
+  <div class="pull-left" style="border: none;margin-left: 20px;">
+    <ul class="one-by-one">
+      <% @list_items.each do |item| %>
+          <li style="color:<%= @text_color %>;background-image: url('<%= @bullet_image %>');font-size: <%= @font_size %>px;line-height: <%= @font_size %>px;padding-left: <%= @bullet_size.to_i*1.3 %>px;background-size: <%= @bullet_size.to_i*1.2 %>px <%= @bullet_size.to_i*1.2 %>px;" class="start-hidden">
+            <%= raw(item) %>
+          </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

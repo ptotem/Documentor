@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  concept_id: 1
+  docket_id: 1
+  statement: MyText
+  optiona: MyString
+  optionb: MyString
+  optionc: MyString
+  optiond: MyString
+  optionacorrect: false
+  optionbcorrect: false
+  optionccorrect: false
+  optiondcorrect: false
+
+two:
+  concept_id: 1
+  docket_id: 1
+  statement: MyText
+  optiona: MyString
+  optionb: MyString
+  optionc: MyString
+  optiond: MyString
+  optionacorrect: false
+  optionbcorrect: false
+  optionccorrect: false
+  optiondcorrect: false

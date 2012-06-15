@@ -1,0 +1,21 @@
+<h3>You have the following Assignments :</h3>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Case Study Name</th>
+    <th>Briefing</th>
+    <th></th>
+
+
+  </tr>
+  <% @case_studies.each_with_index.each do |case_study, index| %>
+
+
+          <tr>
+            <td><%= case_study.name %></td>
+            <td><%= case_study.briefing %></td>
+           <td><%= link_to "Enter",list_practice_details_path(case_study.id),:class => "btn btn-primary" %>
+  <% end %>
+
+</table>
+<%= link_to "Back",user_path,:class => "btn btn-info" %>

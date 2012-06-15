@@ -1,0 +1,2 @@
+module DocuchecksHelper
+end

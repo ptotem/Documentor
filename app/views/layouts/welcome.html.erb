@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>DocuMentor</title>
+  <%= stylesheet_link_tag "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <%= yield(:head) %>
+</head>
+<body>
+<div id="wrapper" style="background: transparent">
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner" style="height:40px;">
+      <div class="container" style="position: relative;">
+        <% if !user_signed_in? %>
+            <%= form_for(resource, :as => resource_name, :url => session_path(resource_name), :html => {:class => "pull-right navbar-form"}) do |f| %>
+                <%= f.email_field :email, :class => "input-small", :placeholder => "Email" %>
+                <%= f.password_field :password, :class => "input-small", :placeholder => "Password" %>
+                <%= f.submit "Sign In", :class => "btn-warning btn" %>
+            <% end %>
+        <% else %>
+            <div class="pull-right" style="margin-top: 10px;color:white;">
+              <%= current_user.email %>
+              <span class="nav_link">
+              | <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :style => "color:white;" %>
+            </span>
+            </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="container" style="padding:0">
+    <%= js extend_gritter :position => :bottom_right %>
+    <%= js add_gritter(flash[:notice], :image => :success, :title => "Notice", :sticky => false, :time => 2000) %>
+    <%= js add_gritter(flash[:alert], :image => :warning, :title => "Alert!", :sticky => false, :time => 2000) %>
+    <%= yield %>
+  </div>
+</div>
+<footer>
+  <br/>
+  <p>A <a href="http://www.ptotem.com">Ptotem</a> Initiative 2012</p>
+</footer>
+</body>
+</html>
+
+
+

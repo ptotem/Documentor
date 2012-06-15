@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  component_id: 1
+  reference_set_id: 1
+  file_name: MyString
+
+two:
+  component_id: 1
+  reference_set_id: 1
+  file_name: MyString
