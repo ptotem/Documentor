@@ -42,6 +42,8 @@ class AssignmentsController < ApplicationController
   # POST /assignments
   # POST /assignments.json
   def create
+    #render :text=>params
+    #return
 
     @case_study=params[:case_study_id]
     Assignment.delete_all(:case_study_id => @case_study)

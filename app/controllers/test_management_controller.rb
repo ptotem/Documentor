@@ -28,11 +28,14 @@ class TestManagementController < ApplicationController
   end
 
   def play_quiz
+
+
     @assignment=Assignment.find(params[:assignment_id])
+        redirect_to list_documents_path(:assignment_id => @assignment.id, :docket_id=>@assignment.case_study.dockets.first.id)
     @quiz=@assignment.quiz
     if @quiz 
       if @quiz.played? or @quiz.questions.count==0
-        redirect_to list_documents_path(:assignment_id => @assignment.id, :docket_id=>Docket.last.id)
+      #  redirect_to list_documents_path(:assignment_id => @assignment.id, :docket_id=>Docket.last.id)
       end
       @questions=@quiz.questions
     end

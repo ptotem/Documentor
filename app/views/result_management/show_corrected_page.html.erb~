@@ -1,0 +1,134 @@
+<%= content_for :nav_bar do %>
+<span style="position:absolute;  top: 8px;left:300px;font-size: 17px"> 
+Pages:
+  <% @pages.each_with_index.each do |page, index| %>
+
+  <%= link_to "|  "+page.name, show_corrected_page_path(@assignment.id, @docket.id, @docucheck.id, page.id) %>
+
+  <% end %>
+
+
+
+</span>
+<% end %>
+
+
+<%= content_for :head do %>
+
+
+<style type="text/css">
+
+.navbar a{
+  color:white;
+}
+
+.navbar{
+  z-index:9999;
+}
+.content {
+  background: transparent;
+}
+
+.page-header {
+  background: transparent;
+  position: fixed;
+  left: 25px;
+  border: none;
+  height: 600px;
+  width: 180px;
+  overflow: auto;
+}
+
+.docuframe {
+  width: 900px;
+  height: 1080px;
+  margin-left: 227px;
+  padding: 0px;
+  background-image: url("<%= @page.blank_form.url(:medium) %>");
+  background-repeat: no-repeat;
+}
+
+.component_icon {
+  cursor: pointer;
+}
+
+.selected_icon {
+  margin-left: 30px;
+}
+
+.selectiondiv {
+  position: absolute;
+  zIndex: 5000;
+  border: 1px solid black
+}
+</style>
+
+<% end %>
+
+
+
+<div class="page-header" style="position:fixed; color:white;font-weight: bold;margin-top: 20px">
+
+
+
+  <br/>
+</div>
+
+<div class="row" style="text-align: center; background: transparent">
+  <div id="DocumentFrame" class="docuframe">
+  </div>
+
+
+  <% @filled_sections.each do |filled_section| %>
+  <% blank_section=BlankSection.find(filled_section.blank_section_id) %>
+  <% @example= Example.find(filled_section.example_id) %>
+
+  <% if filled_section.has_no_error!=filled_section.answer_marked%>
+  <%= image_tag("cross.png", :style => "
+    position :absolute;
+    z-index:6000;
+    top :#{blank_section.ypos }px;
+    left: #{ blank_section.xpos }px;
+    background:transparent
+    ", :class => filled_section.id, :size => "16x16") %>
+  <% else %>
+  <%= image_tag("tick.png", :style => "
+    position :absolute;
+    z-index:6000;
+    top :#{blank_section.ypos }px;
+    left: #{ blank_section.xpos }px;
+    background:transparent
+    ", :class => filled_section.id, :size => "16x16") %>
+    <% end %>
+
+
+    <% if @example.is_image? %>
+    <%= image_tag Example.find(filled_section.example_id).example_image.url, :id => filled_section.id, :class => "#{@class} btn option_image", :style => "
+    position :absolute;
+    z-index:5000;
+    top :#{blank_section.ypos  }px;
+    left: #{blank_section.xpos}px;
+    width: #{blank_section.width+100} px;
+    height:#{blank_section.height }px;
+    background:transparent ;
+    border:none
+    ", :size => "#{blank_section.width}x#{blank_section.height}"
+    %>
+    <% else %>
+    <p class=" btn option_image" id="<%= filled_section.id %>"
+     style="     position :absolute;
+     z-index:5000;
+     top :<%= blank_section.ypos   %>px;
+     left: <%=  blank_section.xpos %>px;
+     width: <%= blank_section.width %>px;
+     height:<%= blank_section.height %>px;
+     background:transparent ;
+     border:none
+     "
+     >  <%= @example.text_content %></p>
+     <% end %>
+     <% end %>
+   </div>
+
+
+

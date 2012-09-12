@@ -41,8 +41,8 @@ Pages:
 
 .docuframe {
   width: 900px;
-  height: 1080px;
-  margin: 0px auto;
+  height: 1250px;
+  margin-left: 250px;
   padding: 0px;
   background-image: url("<%= @page.blank_form.url(:medium) %>");
   background-repeat: no-repeat;
@@ -90,7 +90,7 @@ Pages:
     top :#{blank_section.ypos }px;
     left: #{ blank_section.xpos }px;
     background:transparent
-    ", :class => filled_section.id, :size => "32x32") %>
+    ", :class => filled_section.id, :size => "16x16") %>
   <% else %>
   <%= image_tag("tick.png", :style => "
     position :absolute;
@@ -98,7 +98,7 @@ Pages:
     top :#{blank_section.ypos }px;
     left: #{ blank_section.xpos }px;
     background:transparent
-    ", :class => filled_section.id, :size => "32x32") %>
+    ", :class => filled_section.id, :size => "16x16") %>
     <% end %>
 
 

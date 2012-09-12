@@ -1,0 +1,97 @@
+<style>
+    div.docs {
+        padding: 5px;
+        border-radius: 5px;
+        line-height: 24px;
+        margin-bottom: 3px;
+        list-style-type: none;
+
+        background: #ffaf4b; /* Old browsers */
+        background: -moz-radial-gradient(center, ellipse cover, #ffaf4b 0%, #ff920a 100%); /* FF3.6+ */
+        background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #ffaf4b), color-stop(100%, #ff920a)); /* Chrome,Safari4+ */
+        background: -webkit-radial-gradient(center, ellipse cover, #ffaf4b 0%, #ff920a 100%); /* Chrome10+,Safari5.1+ */
+        background: -o-radial-gradient(center, ellipse cover, #ffaf4b 0%, #ff920a 100%); /* Opera 12+ */
+        background: -ms-radial-gradient(center, ellipse cover, #ffaf4b 0%, #ff920a 100%); /* IE10+ */
+        background: radial-gradient(center, ellipse cover, #ffaf4b 0%, #ff920a 100%); /* W3C */
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#ffaf4b', endColorstr = '#ff920a', GradientType = 1); /* IE6-9 fallback on horizontal gradient */
+
+        font-size: 16px;
+        color: white;
+    }
+
+    .dataTables_wrapper {
+        clear: both;
+        margin-left: 20px;
+        min-height: 302px;
+        position: relative;
+    }
+
+    .dataTables_filter {
+        float: none;
+    }
+
+    .dataTables_filter label{
+        font-weight: bold;
+    }
+
+    label input, label textarea, label select {
+        display: inline;
+        border: solid 1px gray;
+    }
+
+    #ptable_paginate {
+        margin-right: 10px;
+    }
+
+    #ptable_info {
+        font-weight: bold;
+    }
+
+
+</style>
+
+<script type="text/javascript">
+    $(function () {
+        $('#ptable').dataTable({
+            "bRetrieve":true,
+            "iDisplayLength":7
+        });
+    })
+</script>
+
+<div class="row">
+  <div style="height:500px;overflow:auto;padding:5px;margin-top: 20px;">
+    <% @docs=["Account Opening Form",
+              "PAN Card",
+              "Passport Copy",
+              "Partnership Deed Copy",
+              "Board Resolution",
+              "Bank Account Statement",
+              "Ration Card Copy",
+              "Voters ID Card Copy",
+              "Account Opening Cheque"] %>
+    <table id="ptable" style="width:420px; margin-top: -12px;">
+      <thead>
+      <tr>
+        <th></th>
+      </tr>
+      </thead>
+      <tbody>
+      <% @docs.each do |doc| %>
+          <tr>
+            <td>
+              <div class="docs">
+                <a href="/assets/AccountOpeningForm/AccountOpeningForm.html" class="btn btn-info" style="color:white;" target="_blank">Educate</a>
+                <a href="#" class="btn btn-danger" style="color:black;">Simulate</a> &nbsp;<%= doc %></div>
+            </td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+
+  </div>
+</div>
+
+
+

@@ -1,37 +1,52 @@
-  <div class="hero-unit blocky">
-    <h1 style="color:white">DocuCheck</h1>
-    <p style="color:white">Now for some practical practice. Can you catch all the errors in these documents?</p>    
-  </div>
+<style type="text/css">
+    a {
+        color: #015c89;
+    }
 
-  <div style="font-size:14px; padding:10px;font-weight:bold">
-    In this section, you are presented with a docket of documents which has been filled by a client. Check these documents against the set of attached reference documents which contain verified signatures, amounts, etc. You are entrusted with the job of making sure that he has filled up everything correctly. 
-    <br/>
-    <br/>
-    Explore and feel free to make mistakes at this stage. The scores you will receive are not used for evaluation, but are more from the point of view to give you an idea of your progress.
-    <br/>
-    <br/>
-  </div>
+    a:hover {
+        font-weight: bold;
+        color: #015c89;
+    }
+</style>
 
-  <table class="table table-bordered">
-    <tr>
-      <th class="header-row">Document Name</th>
-      <th class="header-row"></th>
-    </tr>
+<div class="hero-unit blocky">
+  <h1 style="color:white">DocuCheck</h1>
 
-    <% @docuchecks.each do |docu| %>
-    <% if !DocketsDocument.find_by_document_id_and_docket_id(docu.document_id,docu.docket_id).reference_document? %>
-    <% if !docu.played %>
-    <tr>
+  <p style="color:white">Now for some practical practice. Can you catch all the errors in these documents?</p>
+</div>
 
-      <td><%= Document.find(docu.document_id).name %></td>
-      <td><%= link_to "Start the Checking", play_document_test_path(docu.id,1) %></td>
-    </tr>
-    <% end %>
+<div style="font-size:14px; padding:10px;font-weight:bold; color:white;">
+  In this section, you are presented with a docket of documents which has been filled by a client. Check these documents
+  against the set of attached reference documents which contain verified signatures, amounts, etc. You are entrusted
+  with the job of making sure that he has filled up everything correctly.
+  <br/>
+  <br/>
+  Explore and feel free to make mistakes at this stage. The scores you will receive are not used for evaluation, but are
+  more from the point of view to give you an idea of your progress.
+  <br/>
+  <br/>
+</div>
+
+<table class="table table-bordered" style="background: white;">
+  <tr>
+    <th class="header-row">Document Name</th>
+    <th class="header-row"></th>
+  </tr>
+
+  <% @docuchecks.each do |docu| %>
+      <% if !DocketsDocument.find_by_document_id_and_docket_id(docu.document_id, docu.docket_id).reference_document? %>
+          <% if !docu.played %>
+              <tr>
+
+                <td><%= Document.find(docu.document_id).name %></td>
+                <td><%= link_to "Start the Checking", play_document_test_path(docu.id, 1) %></td>
+              </tr>
+          <% end %>
 
 
-    <% end %>
-    <% end %>
-  </table>
-  <br>
-  <br>
-  <br>
+      <% end %>
+  <% end %>
+</table>
+<br>
+<br>
+<br>
