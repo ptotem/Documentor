@@ -2,9 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$link_color: #a7cfdf;
-$link_hover_color: #ffffff;
-$link_visited_color: #a7cfdf;
+$link_color: #800000;
+$link_hover_color: #802222;
+$link_visited_color: #802222;
 
 body {
   background: transparent;
@@ -15,18 +15,19 @@ body {
 }
 
 .background-stuff {
-  background: #236B8E;
+  background: #C43C35;
 }
 
 .blocky {
-  background: #a7cfdf; /* Old browsers */
-  background: -moz-linear-gradient(-45deg, #a7cfdf 0%, #23538a 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #a7cfdf), color-stop(100%, #23538a)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(-45deg, #a7cfdf 0%, #23538a 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(-45deg, #a7cfdf 0%, #23538a 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(-45deg, #a7cfdf 0%, #23538a 100%); /* IE10+ */
-  background: linear-gradient(-45deg, #a7cfdf 0%, #23538a 100%); /* W3C */
+  background: #800000; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #802222 0%, #800000 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #802222), color-stop(100%, #802222)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg, #802222 0%, #800000 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg, #802222 0%, #800000 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg, #802222 0%, #800000 100%); /* IE10+ */
+  background: linear-gradient(-45deg, #802222 0%, #800000 100%); /* W3C */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#a7cfdf', endColorstr = '#23538a', GradientType = 1); /* IE6-9 fallback on horizontal gradient */
+
 
   border-radius: 5px;
 }
@@ -140,23 +141,14 @@ footer {
 // Spider CSS
 
 #spider {
-  position: absolute;
-  left: 50px;
-  top: 150px;
-  width: 423px;
-  height: 400px;
-  overflow: hidden;
-  border-radius: 20px;
-
-  background: #f8ffe8; /* Old browsers */
-  background: -moz-radial-gradient(center, ellipse cover,  #f8ffe8 0%, #e3f5ab 33%, #b7df2d 100%); /* FF3.6+ */
-  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,#f8ffe8), color-stop(33%,#e3f5ab), color-stop(100%,#b7df2d)); /* Chrome,Safari4+ */
-  background: -webkit-radial-gradient(center, ellipse cover,  #f8ffe8 0%,#e3f5ab 33%,#b7df2d 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-radial-gradient(center, ellipse cover,  #f8ffe8 0%,#e3f5ab 33%,#b7df2d 100%); /* Opera 12+ */
-  background: -ms-radial-gradient(center, ellipse cover,  #f8ffe8 0%,#e3f5ab 33%,#b7df2d 100%); /* IE10+ */
-  background: radial-gradient(center, ellipse cover,  #f8ffe8 0%,#e3f5ab 33%,#b7df2d 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8ffe8', endColorstr='#b7df2d',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-
+   background: radial-gradient(ellipse farthest-corner at center center , #F8FFE8 0%, #E3F5AB 33%, #1C1C1C 100%) repeat scroll 0 0 transparent;
+    border-radius: 20px 20px 20px 20px;
+    height: 400px;
+    left: 50px;
+    overflow: hidden;
+    position: absolute;
+top: 150px;
+    width: 423px;
 }
 
 #spider svg {
@@ -301,16 +293,16 @@ footer {
   height: 18px;
   font-size: 16px;
   color: white;
-  background: #a7cfdf; /* Old browsers */
-  background: -moz-linear-gradient(-45deg, #a7cfdf 0%, #23538a 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, #a7cfdf), color-stop(100%, #23538a)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(-45deg, #a7cfdf 0%, #23538a 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(-45deg, #a7cfdf 0%, #23538a 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(-45deg, #a7cfdf 0%, #23538a 100%); /* IE10+ */
-  background: linear-gradient(-45deg, #a7cfdf 0%, #23538a 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#a7cfdf', endColorstr = '#23538a', GradientType = 1); /* IE6-9 fallback on horizontal gradient */
+  background: #802222; /* Old browsers */
+  background: -moz-linear-gradient(-45deg,  #800000  0%, #802222 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(0%,#800000), color-stop(100%,#802222)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(-45deg,  #800000 0%,#802222 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(-45deg,  #800000 0%,#802222 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(-45deg,  #800000 0%,#802222 100%); /* IE10+ */
+  background: linear-gradient(-45deg,  #800000 0%,#802222 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a7cfdf', endColorstr='#23538a',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 
-  border-radius: 5px;
+  border-radius:5px;
 }
 
 #product-menu {

@@ -77,11 +77,15 @@
       </tr>
       </thead>
       <tbody>
-      <% @docs.each do |doc| %>
+      <% @docs.each_with_index do |doc,index| %>
           <tr>
             <td>
               <div class="docs">
-                <a href="/assets/AccountOpeningForm/AccountOpeningForm.html" class="btn btn-info" style="color:white;" target="_blank">Educate</a>
+                <%if index>0 %>
+                    <a href="" class="btn btn-info" style="color:white;">Educate</a>
+              <%else%>
+                    <a href="/assets/Axis_bank_document/FirstSlide.html" class="btn btn-info" style="color:white;" target="_blank">Educate</a>
+                <%end%>
                 <a href="#" class="btn btn-danger" style="color:black;">Simulate</a> &nbsp;<%= doc %></div>
             </td>
           </tr>

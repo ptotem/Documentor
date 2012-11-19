@@ -1,0 +1,877 @@
+/* line 5, ../../app/assets/stylesheets/ptemplar.css.scss */
+html {
+  background: black;
+}
+
+/* line 9, ../../app/assets/stylesheets/ptemplar.css.scss */
+body {
+  width: 1000px;
+  height: 640px;
+  margin: 0 auto;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+/* line 17, ../../app/assets/stylesheets/ptemplar.css.scss */
+[class^="icon-"], [class*=" icon-"] {
+  background-image: url("/assets/glyphicons-halflings.png");
+  margin-right: 3px;
+}
+
+/* line 22, ../../app/assets/stylesheets/ptemplar.css.scss */
+.creator {
+  background-image: url("/assets/new_bug_on_a_blade_of_grass.jpg");
+}
+
+/* line 26, ../../app/assets/stylesheets/ptemplar.css.scss */
+.preview {
+  background: transparent;
+}
+
+/* line 30, ../../app/assets/stylesheets/ptemplar.css.scss */
+.page_wrapper {
+  margin-top: 60px;
+  position: relative;
+}
+
+/* line 35, ../../app/assets/stylesheets/ptemplar.css.scss */
+#ptemplar_logo_main {
+  margin-left: 15px;
+  float: left;
+  width: 200px;
+  border-radius: 5px;
+}
+
+/* line 42, ../../app/assets/stylesheets/ptemplar.css.scss */
+#main_punchline {
+  float: left;
+  margin-left: 40px;
+  width: 600px;
+  color: white;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+/* line 51, ../../app/assets/stylesheets/ptemplar.css.scss */
+#landing_page_hero {
+  margin-top: -200px;
+  margin-left: 250px;
+  float: left;
+  width: 560px;
+}
+
+/* line 58, ../../app/assets/stylesheets/ptemplar.css.scss */
+#landing_page_hero h1 {
+  width: 100%;
+  font-size: 48px;
+}
+
+/* line 63, ../../app/assets/stylesheets/ptemplar.css.scss */
+#landing_page_hero img {
+  width: 64px;
+  vertical-align: middle;
+}
+
+/* line 68, ../../app/assets/stylesheets/ptemplar.css.scss */
+.pitch_panel {
+  width: 595px;
+  padding: 40px;
+  height: 220px;
+  float: left;
+  background: white;
+  margin-right: 10px;
+  border-radius: 10px;
+  margin-left: 20px;
+}
+
+/* line 79, ../../app/assets/stylesheets/ptemplar.css.scss */
+.pitch_panel#library {
+  width: 635px;
+  padding: 20px;
+  padding-bottom: 0px;
+  height: 280px;
+  float: left;
+  background: white;
+  margin-right: 10px;
+  border-radius: 10px;
+  margin-left: 20px;
+}
+
+/* line 91, ../../app/assets/stylesheets/ptemplar.css.scss */
+.progress_panel {
+  width: 215px;
+  height: 300px;
+  float: left;
+  background: #d2ad46;
+  margin-right: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* line 101, ../../app/assets/stylesheets/ptemplar.css.scss */
+.progress_panel:hover {
+  background: #e7a93a;
+}
+
+/* line 105, ../../app/assets/stylesheets/ptemplar.css.scss */
+.progress_panel h2 {
+  text-align: center;
+  margin: 0;
+  margin-top: 20px;
+}
+
+/* line 111, ../../app/assets/stylesheets/ptemplar.css.scss */
+.progress_panel img {
+  width: 160px;
+  text-align: center;
+  margin: 0;
+  margin-top: -10px;
+}
+
+/* line 118, ../../app/assets/stylesheets/ptemplar.css.scss */
+.progress_panel p {
+  padding: 20px;
+  margin-top: -20px;
+}
+
+/* line 123, ../../app/assets/stylesheets/ptemplar.css.scss */
+.main_btn {
+  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: black;
+}
+
+/* line 130, ../../app/assets/stylesheets/ptemplar.css.scss */
+.main_btn:hover {
+  color: black;
+  font-weight: bold;
+}
+
+/* line 135, ../../app/assets/stylesheets/ptemplar.css.scss */
+.extended_email {
+  width: 200px;
+}
+
+/* line 139, ../../app/assets/stylesheets/ptemplar.css.scss */
+.btn {
+  margin-right: 5px;
+}
+
+/* line 143, ../../app/assets/stylesheets/ptemplar.css.scss */
+.navbar .nav {
+  margin: 0 auto;
+  z-index: 999999999;
+}
+
+/* line 148, ../../app/assets/stylesheets/ptemplar.css.scss */
+.navbar .nav > li > a {
+  color: white;
+  text-align: center;
+}
+
+/* line 153, ../../app/assets/stylesheets/ptemplar.css.scss */
+.menu_icon {
+  width: 50px;
+}
+
+/* Presentation creator page */
+/* line 159, ../../app/assets/stylesheets/ptemplar.css.scss */
+.side_panel {
+  text-align: center;
+  height: 560px;
+  width: 124px;
+  float: left;
+}
+
+/* line 166, ../../app/assets/stylesheets/ptemplar.css.scss */
+.thumbnails_list {
+  list-style-type: none;
+  background-image: url("/assets/top_left_corner.gif");
+  margin-top: 10px;
+  margin-left: 10px;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  height: 540px;
+  width: 120px;
+  overflow: auto;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  text-align: center;
+}
+
+/* line 181, ../../app/assets/stylesheets/ptemplar.css.scss */
+.thumbnails_list li {
+  margin: 2px;
+  margin-top: 10px;
+  font-size: 15px;
+  height: 50px;
+  width: 80px;
+  position: relative;
+  text-align: center;
+}
+
+/* line 191, ../../app/assets/stylesheets/ptemplar.css.scss */
+.thumbnail {
+  text-align: center;
+  border: 1px solid black;
+  margin-left: 3px;
+}
+
+/* line 197, ../../app/assets/stylesheets/ptemplar.css.scss */
+.main_page_thumbnail {
+  border: 1px solid black;
+  border-radius: 5px;
+  position: relative;
+  top: -15px;
+  height: 36px;
+  width: 64px;
+}
+
+/* line 206, ../../app/assets/stylesheets/ptemplar.css.scss */
+.pslide_thumbnails {
+  padding: 0;
+}
+
+/* line 210, ../../app/assets/stylesheets/ptemplar.css.scss */
+.raised {
+  margin-top: -10px;
+}
+
+/* line 214, ../../app/assets/stylesheets/ptemplar.css.scss */
+#pslide_wrapper {
+  position: relative;
+  width: 800px;
+  height: 450px;
+  margin-left: 150px;
+  margin-top: 50px;
+}
+
+/* line 222, ../../app/assets/stylesheets/ptemplar.css.scss */
+#pslide_display {
+  position: absolute;
+  top: 60px;
+  border-radius: 10px;
+  width: 800px;
+  height: 450px;
+  border: 1px solid #000000;
+  background: transparent;
+  overflow: hidden;
+}
+
+/* line 233, ../../app/assets/stylesheets/ptemplar.css.scss */
+#pslide_display_back {
+  position: absolute;
+  top: 60px;
+  border-radius: 10px;
+  width: 800px;
+  height: 450px;
+  border: 1px solid #000000;
+  background: white;
+  overflow: hidden;
+}
+
+/* line 244, ../../app/assets/stylesheets/ptemplar.css.scss */
+#gridding {
+  position: absolute;
+}
+
+/* line 248, ../../app/assets/stylesheets/ptemplar.css.scss */
+.header_menu {
+  position: absolute;
+  left: 30px;
+  top: 60px;
+  z-index: 99;
+  text-align: right;
+  width: 800px;
+}
+
+/* line 257, ../../app/assets/stylesheets/ptemplar.css.scss */
+#no_slide_state {
+  margin: 0 auto;
+}
+
+/* line 261, ../../app/assets/stylesheets/ptemplar.css.scss */
+.add_slide_link {
+  margin-top: 190px;
+  margin-left: 300px;
+  width: 160px;
+  font-size: 24px;
+  padding: 20px;
+}
+
+/* line 269, ../../app/assets/stylesheets/ptemplar.css.scss */
+.operations_buttons {
+  height: 10px;
+}
+
+/* line 273, ../../app/assets/stylesheets/ptemplar.css.scss */
+.animation_buttons {
+  position: relative;
+  bottom: 10px;
+  left: 40px;
+}
+
+/* line 280, ../../app/assets/stylesheets/ptemplar.css.scss */
+#mode_button {
+  color: white;
+  font-size: 24px;
+  width: 90px;
+  line-height: 28px;
+}
+
+/* line 288, ../../app/assets/stylesheets/ptemplar.css.scss */
+a:hover {
+  text-decoration: none;
+}
+
+/* line 292, ../../app/assets/stylesheets/ptemplar.css.scss */
+.non_design_buttons {
+  display: none;
+}
+
+/* line 296, ../../app/assets/stylesheets/ptemplar.css.scss */
+.no_pcontents {
+  text-align: center;
+  position: absolute;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+/* line 303, ../../app/assets/stylesheets/ptemplar.css.scss */
+.no_pcontents a {
+  font-weight: bolder;
+  font-size: 18px;
+}
+
+/* line 308, ../../app/assets/stylesheets/ptemplar.css.scss */
+.content_addition {
+  z-index: 99999;
+  width: 80%;
+  height: 80%;
+  margin-left: -40%;
+}
+
+/* line 315, ../../app/assets/stylesheets/ptemplar.css.scss */
+.mini-slide {
+  background: #e9d4b3;
+  /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover, #e9d4b3 0%, #c19e67 93%, #b68d4c 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #e9d4b3), color-stop(93%, #c19e67), color-stop(100%, #b68d4c));
+  /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover, #e9d4b3 0%, #c19e67 93%, #b68d4c 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover, #e9d4b3 0%, #c19e67 93%, #b68d4c 100%);
+  /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover, #e9d4b3 0%, #c19e67 93%, #b68d4c 100%);
+  /* IE10+ */
+  background: radial-gradient(ellipse at center, #e9d4b3 0%, #c19e67 93%, #b68d4c 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#e9d4b3', endColorstr = '#b68d4c', GradientType = 1);
+  /* IE6-9 fallback on horizontal gradient */
+  width: 160px;
+  height: 90px;
+  position: relative;
+  border: solid 1px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+/* line 334, ../../app/assets/stylesheets/ptemplar.css.scss */
+#ptemplate_selector {
+  float: left;
+  margin-left: 15px;
+}
+
+/* line 339, ../../app/assets/stylesheets/ptemplar.css.scss */
+#new_pslide_search {
+  background-image: url("/assets/top_left_corner.gif");
+  background-size: 100% 100%;
+  background-repeat: repeat;
+  top: 100px;
+  height: 300px;
+  width: 120px;
+  padding: 30px;
+}
+
+/* line 349, ../../app/assets/stylesheets/ptemplar.css.scss */
+#new_pslide_search .widgets {
+  padding: 10px 0 10px 0;
+  font-weight: bold;
+}
+
+/* line 354, ../../app/assets/stylesheets/ptemplar.css.scss */
+#search_grouping {
+  background-image: url("/assets/top_left_corner.gif");
+  background-size: 100% 100%;
+  background-repeat: repeat;
+  top: 450px;
+  height: 60px;
+  width: 120px;
+  padding: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* line 366, ../../app/assets/stylesheets/ptemplar.css.scss */
+.back_btn {
+  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 10px;
+  color: black;
+  width: 160px;
+}
+
+/* line 374, ../../app/assets/stylesheets/ptemplar.css.scss */
+.ptemplate_list {
+  float: left;
+  margin-left: 25px;
+  background-color: white;
+  top: 100px;
+  width: 640px;
+  padding: 30px;
+}
+
+/* line 383, ../../app/assets/stylesheets/ptemplar.css.scss */
+.no_padding {
+  padding: 0;
+}
+
+/* line 387, ../../app/assets/stylesheets/ptemplar.css.scss */
+.color_picker_button {
+  font-weight: bolder;
+  font-size: 12px;
+  width: 32px;
+  height: 36px;
+  margin-right: 1px;
+  color: white;
+  text-align: center;
+}
+
+/* line 397, ../../app/assets/stylesheets/ptemplar.css.scss */
+.pslide_color_picker_button {
+  font-weight: bolder;
+  font-size: 14px;
+}
+
+/* line 402, ../../app/assets/stylesheets/ptemplar.css.scss */
+#pTemplate {
+  position: relative;
+  top: 100px;
+  left: 150px;
+  border-radius: 10px;
+  width: 800px;
+  height: 450px;
+  border: 1px solid #000000;
+  background: #a9a9a9;
+}
+
+/* line 413, ../../app/assets/stylesheets/ptemplar.css.scss */
+#pLayout {
+  position: relative;
+  top: 60px;
+  border-radius: 10px;
+  width: 800px;
+  height: 450px;
+  border: 1px solid #000000;
+}
+
+/* line 422, ../../app/assets/stylesheets/ptemplar.css.scss */
+.ptemplate_back.pull-left {
+  margin-top: 25px;
+  padding: 0;
+}
+
+/* line 427, ../../app/assets/stylesheets/ptemplar.css.scss */
+.ptemplate_back.pull-right {
+  margin-top: 25px;
+  padding: 0;
+}
+
+/* line 432, ../../app/assets/stylesheets/ptemplar.css.scss */
+.ptemplate_back a {
+  margin-top: -10px;
+}
+
+/* line 436, ../../app/assets/stylesheets/ptemplar.css.scss */
+.ptemplate_back img {
+  width: 24px;
+}
+
+/* line 440, ../../app/assets/stylesheets/ptemplar.css.scss */
+.ptemplate_back h2 {
+  display: inline-block;
+  color: white;
+}
+
+/* line 445, ../../app/assets/stylesheets/ptemplar.css.scss */
+.selected {
+  margin: 20 auto;
+}
+
+/* line 449, ../../app/assets/stylesheets/ptemplar.css.scss */
+.unselected {
+  margin: 20 auto;
+}
+
+/* line 453, ../../app/assets/stylesheets/ptemplar.css.scss */
+.widget_icon {
+  margin-top: 20px;
+  width: 40px;
+  border-radius: 5px;
+  border: 3px solid black;
+  background: white;
+}
+
+/* line 461, ../../app/assets/stylesheets/ptemplar.css.scss */
+.widget_icon:hover {
+  width: 40px;
+  border-radius: 5px;
+  border: 3px solid black;
+  background: #ffe4c4;
+  margin-top: 30px;
+}
+
+/* line 469, ../../app/assets/stylesheets/ptemplar.css.scss */
+.pslide_pagination {
+  width: 40px;
+  margin-top: 20px;
+  position: relative;
+  padding: 10px;
+  border-radius: 5px;
+  border: 3px solid #000;
+}
+
+/* line 478, ../../app/assets/stylesheets/ptemplar.css.scss */
+.sort > li {
+  list-style: none;
+  float: left;
+}
+
+/* line 483, ../../app/assets/stylesheets/ptemplar.css.scss */
+.pslide_pagination img {
+  width: 30px;
+  vertical-align: middle;
+}
+
+/* line 488, ../../app/assets/stylesheets/ptemplar.css.scss */
+a.pslide_pagination {
+  color: black;
+  font-weight: bold;
+}
+
+/* line 493, ../../app/assets/stylesheets/ptemplar.css.scss */
+.psection_sample_image {
+  width: 256px;
+}
+
+/* line 497, ../../app/assets/stylesheets/ptemplar.css.scss */
+#background-colors {
+  position: absolute;
+  top: 700px;
+  left: 150px;
+  border-radius: 10px;
+  margin-top: 30px;
+  width: 960px;
+  height: 100px;
+  border: 1px solid #000000;
+  background: #000000;
+}
+
+/* line 510, ../../app/assets/stylesheets/ptemplar.css.scss */
+.gridding_dot {
+  position: absolute;
+}
+
+/* line 514, ../../app/assets/stylesheets/ptemplar.css.scss */
+#pslide {
+  float: left;
+  width: 800px;
+  height: 450px;
+  padding: 0;
+  margin-left: 10px;
+  margin-top: 10px;
+  position: relative;
+  border-radius: 10px;
+  border: 10px solid #785d2a;
+  overflow: hidden;
+}
+
+/* line 527, ../../app/assets/stylesheets/ptemplar.css.scss */
+.gridding_dot {
+  position: absolute;
+  color: #957535;
+}
+
+/* line 532, ../../app/assets/stylesheets/ptemplar.css.scss */
+.psection_block {
+  position: absolute;
+  border: 2px solid black;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  padding: 3px;
+}
+
+/* line 542, ../../app/assets/stylesheets/ptemplar.css.scss */
+.psection_block1 {
+  position: absolute;
+  border: 2px solid black;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  padding: 3px;
+}
+
+/* line 552, ../../app/assets/stylesheets/ptemplar.css.scss */
+.psection_back, .psection_front {
+  position: absolute;
+  background: rgba(0, 0, 0, 0);
+  z-index: 1;
+}
+
+/* line 558, ../../app/assets/stylesheets/ptemplar.css.scss */
+.handler {
+  position: absolute;
+  display: none;
+}
+
+/* line 563, ../../app/assets/stylesheets/ptemplar.css.scss */
+.btn-editor {
+  font-size: 12px;
+  padding: 4px;
+  padding-right: 7px;
+  border-radius: 0;
+  margin: 0;
+  text-align: center;
+}
+
+/* line 572, ../../app/assets/stylesheets/ptemplar.css.scss */
+.btn-remove {
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  padding: 1px;
+  border-radius: 0;
+  margin: 0;
+  margin-top: -3px;
+  text-align: center;
+}
+
+/* line 583, ../../app/assets/stylesheets/ptemplar.css.scss */
+.btn-remove:hover {
+  color: darkred;
+}
+
+/* line 587, ../../app/assets/stylesheets/ptemplar.css.scss */
+.top_it_fifty {
+  margin-top: 50px;
+}
+
+/* line 591, ../../app/assets/stylesheets/ptemplar.css.scss */
+.white_box {
+  background: white;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+/* line 597, ../../app/assets/stylesheets/ptemplar.css.scss */
+.section_header {
+  float: left;
+  background: white;
+  padding: 5px 20px 5px 20px;
+  border-radius: 10px;
+  width: auto;
+  margin-bottom: 10px;
+}
+
+/* line 606, ../../app/assets/stylesheets/ptemplar.css.scss */
+.section_content {
+  float: left;
+  width: 900px;
+  height: 400px;
+  overflow: auto;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* line 615, ../../app/assets/stylesheets/ptemplar.css.scss */
+.text_content_block {
+  width: 850px;
+  padding: 20px;
+  border-radius: 10px;
+  background: white;
+  margin-bottom: 10px;
+}
+
+/* line 623, ../../app/assets/stylesheets/ptemplar.css.scss */
+.image_content_block {
+  width: 250px;
+  float: left;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* line 631, ../../app/assets/stylesheets/ptemplar.css.scss */
+.copiable_block {
+  cursor: pointer;
+}
+
+/* line 635, ../../app/assets/stylesheets/ptemplar.css.scss */
+.scrap_item {
+  width: 80%;
+  padding: 20px;
+  border-radius: 10px;
+  background: white;
+  margin-bottom: 10px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+/* line 645, ../../app/assets/stylesheets/ptemplar.css.scss */
+#container_wrapper {
+  top: 25px;
+}
+
+/* line 649, ../../app/assets/stylesheets/ptemplar.css.scss */
+.compose_panel {
+  height: 450px;
+  position: absolute;
+  top: 20px;
+  right: 100px;
+  width: 50px;
+}
+
+/* line 657, ../../app/assets/stylesheets/ptemplar.css.scss */
+.compose_panel_sub {
+  height: 450px;
+  position: fixed;
+  top: 20px;
+  right: 100px;
+  width: 50px;
+}
+
+/* line 665, ../../app/assets/stylesheets/ptemplar.css.scss */
+.main_page_footer_menu {
+  position: absolute;
+  top: 550px;
+  left: 450px;
+  width: 800px;
+}
+
+/* line 672, ../../app/assets/stylesheets/ptemplar.css.scss */
+.btn-compose-panel {
+  padding-left: 10px;
+  width: 100px;
+  margin-bottom: 5px;
+  text-align: right;
+}
+
+/* line 679, ../../app/assets/stylesheets/ptemplar.css.scss */
+.btn-compose-panel:hover {
+  background: #a98a39;
+  color: white;
+  border: 1px solid black;
+}
+
+/* line 685, ../../app/assets/stylesheets/ptemplar.css.scss */
+label.filebutton {
+  margin: 0 auto;
+  margin-top: 40px;
+  padding-left: 20px;
+  width: 120px;
+  height: 20px;
+  overflow: hidden;
+  position: relative;
+  border-radius: 5px;
+  background: #d5cea6;
+  /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover, #d5cea6 0%, #c9c190 40%, #b7ad70 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, #d5cea6), color-stop(40%, #c9c190), color-stop(100%, #b7ad70));
+  /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover, #d5cea6 0%, #c9c190 40%, #b7ad70 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover, #d5cea6 0%, #c9c190 40%, #b7ad70 100%);
+  /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover, #d5cea6 0%, #c9c190 40%, #b7ad70 100%);
+  /* IE10+ */
+  background: radial-gradient(ellipse at center, #d5cea6 0%, #c9c190 40%, #b7ad70 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr = '#d5cea6', endColorstr = '#b7ad70', GradientType = 1);
+  /* IE6-9 fallback on horizontal gradient */
+}
+
+/* line 706, ../../app/assets/stylesheets/ptemplar.css.scss */
+label span input {
+  cursor: pointer;
+  margin-top: 40px;
+  z-index: 999;
+  line-height: 0;
+  font-size: 50px;
+  position: absolute;
+  top: -2px;
+  left: -800px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -ms-filter: "alpha(opacity=0)";
+  margin: 0;
+  padding: 0;
+}
+
+/* line 722, ../../app/assets/stylesheets/ptemplar.css.scss */
+#pageslide {
+  /* These styles MUST be included. Do not change. */
+  display: none;
+  position: absolute;
+  position: fixed;
+  top: 0;
+  height: 100%;
+  z-index: 999999;
+  /* Specify the width of your pageslide here */
+  width: 260px;
+  padding: 0 20px;
+  /* These styles are optional, and describe how the pageslide will look */
+  background-color: #333;
+  color: #FFF;
+  -webkit-box-shadow: inset 0 0 5px 5px #222;
+  -moz-box-shadow: inset 0 0 5px 5px #222;
+  box-shadow: inset 0 0 5px 5px #222;
+}
+
+/* line 743, ../../app/assets/stylesheets/ptemplar.css.scss */
+#collection {
+  position: absolute;
+  top: 10px;
+  right: -10px;
+  padding: 10px;
+  width: 110px;
+  height: 440px;
+  background: #7f7e4a;
+  border: 3px solid black;
+  border-radius: 10px;
+  text-align: center;
+  overflow-y: scroll;
+  display: none;
+}
+
+/* line 758, ../../app/assets/stylesheets/ptemplar.css.scss */
+.collection_block {
+  width: 80px;
+  padding: 5px;
+  border: 2px solid #afa188;
+  margin-bottom: 3px;
+  border-radius: 5px;
+  background: white;
+  z-index: 99999;
+}
+
+/* line 768, ../../app/assets/stylesheets/ptemplar.css.scss */
+#Done_1 {
+  position: absolute;
+  top: -40px;
+}

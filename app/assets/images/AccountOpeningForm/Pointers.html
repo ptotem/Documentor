@@ -1,47 +1,52 @@
-<link href="assets/application.css?body=1" media="screen" rel="stylesheet" type="text/css" />
-<link href="assets/bootstrap.css?body=1" media="screen" rel="stylesheet" type="text/css" />
-<link href="assets/colorpicker.css?body=1" media="screen" rel="stylesheet" type="text/css" />
-<link href="assets/jquery-ui-1.8.17.custom.css?body=1" media="screen" rel="stylesheet" type="text/css" />
-<link href="assets/pslide.css?body=1" media="screen" rel="stylesheet" type="text/css" />
-<link href="assets/scaffolds.css?body=1" media="screen" rel="stylesheet" type="text/css" />
-<link href="assets/silverspoon.css?body=1" media="screen" rel="stylesheet" type="text/css" />
-<link href="assets/welcome.css?body=1" media="screen" rel="stylesheet" type="text/css" />
-<script src="assets/jquery.js?body=1" type="text/javascript"></script>
-<script src="assets/jquery_ujs.js?body=1" type="text/javascript"></script>
-<script src="assets/bootstrap-colorpicker.js?body=1" type="text/javascript"></script>
-<script src="assets/bootstrap.js?body=1" type="text/javascript"></script>
-<script src="assets/jquery-ui-1.8.16.custom.min.js?body=1" type="text/javascript"></script>
-<script src="assets/jquery.dataTables.min.js?body=1" type="text/javascript"></script>
-<script src="assets/pslide.js?body=1" type="text/javascript"></script>
-<script src="assets/swfobject.js?body=1" type="text/javascript"></script>
-<script src="assets/tinymce/preinit.js?body=1" type="text/javascript"></script>
-<script src="assets/tinymce/tiny_mce_jquery.js?body=1" type="text/javascript"></script>
-<script src="assets/tinymce/jquery-tinymce.js?body=1" type="text/javascript"></script>
-<script src="assets/tinymce-jquery.js?body=1" type="text/javascript"></script>
-<script src="assets/application.js?body=1" type="text/javascript"></script>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Account Opening Form</title>
+    <link href="assets/imp/silverspoon.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="assets/imp/jquery.js" type="text/javascript"></script>
+    <meta content="authenticity_token" name="csrf-param"/>
+    <meta content="RTMVj+9EhojTIH0HAOe6AN/bTUDiZxdTFqRjG3oi8V0=" name="csrf-token"/>
+</head>
+<body>
+<div id="wrapper">
+
+    <div class="container-fluid">
+        <!--<div class="content" style="background: transparent; left: -20px;padding-left: 0px;">-->
 
 
+        <script type="text/javascript">
+            function sequence(i) {
+                $('#item' + i).fadeIn(2000, function () {
+                    i++;
+                    if (i < 9) {
+                        sequence(i);
+                    }
+                });
+            }
+            $(function () {
+                sequence(1)
 
-<div id="pslide_display_back" style=" position: absolute;
+            });
+        </script>
+
+
+        <div id="pslide_display_back" style=" position: absolute;
         top: 20px;
-        left: 150px;
+        left: 175px;
         border-radius: 10px;
         margin-top: 30px;
         width: 960px;
         height: 600px;
-        background: white;
         overflow: hidden;
-        border:1px solid black;
-        background-color: rgb(255, 255, 255);
-        opacity: 1">
+        border:1px solid black;">
 
-      <img alt="Docuback" src="assets/system/pfiles/930/original/docuback.jpg" style="position:absolute;width:960px;height:600px;" />
+            <img alt="Docuback" src="assets/checkbox1.jpg" style="position:absolute;width:960px;height:600px;"/>
 
-</div>
-<div id="pslide_display" style="
-        position: absolute;
+        </div>
+        <div id="pslide_display" style="
+position: absolute;
         top: 20px;
-        left: 150px;
+        left: 175px;
         border-radius: 10px;
         margin-top: 30px;
         width: 960px;
@@ -49,53 +54,92 @@
         border: 1px solid #000000;
         background: transparent;
         overflow: hidden;">
-  <div>
+            <div>
+
+                <div id="5323" class="colored_div"
+                     style="border-radius:10px;background-color:rgba(0,0,0,0.89);opacity:0.89;position: absolute;left:39px;top:30px;height:150px;width:302px">
+                </div>
+                <img src="assets/imp/techer.gif" style="position:absolute;width:200px;bottom: 100px;left:200px;border-radius: 10px;opacity: 0.9"/>
+
+                <div style="color:rgb(232,207,207);padding:9px;position: absolute;left:39px;top:40px;height:174px;width:302px">
+
+                    <div class="design_buttons">
+
+
+                    </div>
+
+
+                    <div style="text-align: center;padding:20px;font-size: 30px; font-family:Arial;font-weight: 1 ;line-height:35px; ">
+                        Points to be Checked For
+                    </div>
+                </div>
+
+
+                <div id="5324" class="colored_div"
+                     style="border-radius:10px;background:white;opacity:0.95;border:1px solid black ;position: absolute;left:537px;top:32px;height:520px;width:400px">
+                </div>
+                <div style="color:rgb(0,0,0);padding:9px;position: absolute;left:537px;top:42px;height:502px;width:359px">
+
+                    <div class="design_buttons">
+
+
+                    </div>
+
+
+                    <style type="text/css">
+                        h1 {
+                            color: rgb(0, 0, 0);
+                            text-align: center;
+
+                        }
+
+                        p {
+
+                            text-align: center;
+                            font-weight: bold;
+
+                        }
+                    </style>
+                    <div style="padding-top:0px;margin-right: 25px;margin-left: -10px;height:485px;overflow: auto;">
+                        <br>
+                        <ul style="text-color:black">
+
+                            <li type=circle id="item1">Nomination details are mandatory or Form 60 to be collected in lieu of PAN Card<br/><br/>
+                            <li type=circle id="item2">All information collected and presented from the client should be complete and accurate in all respects<br/><br/>
+                            <li type=circle id="item3">All questions should be answered and / or the appropriate boxes should be "tick" marked<br/><br/>
+                            <li type=circle id="item4">The form should be legibly and completely filled in<br/><br/>
+                            <li type=circle id="item5">The primary applicant must sign any cancellation or alteration<br/><br/>
+                            <li type=circle id="item6">Mother's maiden name is to be compulsorily provided by the applicant<br/><br/>
+                            
+                        </ul>
+
+                    </div>
+                </div>
+
+                 <a href="assets/page1_check.jpg"><img src="assets/download.gif" target="_blank"
+                                                        style="position:absolute;width:300px;bottom: 125px;left:44px;border-radius: 10px;"/>
+
+                    <div style="position:absolute;width:300px;bottom: 30px;left:44px;border-radius: 10px;"><h1>A Correctly Filled Form</h1></div>
+                </a>
 
 
 
-
-
-            <div id="3080" class="colored_div" style="border-radius:10px;background-color:transparent;opacity:1;position: absolute;left:55px;top:40px;height:171px;width:407px">
+            <!--    <a href="assets/imp/Edelweiss_Tokio_Life_Protection.pdf"><img src="assets/download_button1.png" target="_blank" style="position:absolute;width:400px;bottom: 50px;left:44px;border-radius: 10px;opacity: 0.9"/></a>
+        -->
             </div>
-            <div style="color:rgb(51, 51, 51);padding:9px;position: absolute;left:55px;top:40px;height:171px;width:407px">
-
-              <div class="design_buttons">
-
-
-              </div>
-              <div style="text-align: center;padding:30.005190417690415px;font-size: 69.95132236062446px;line-height:73.44888847865569px; ">
- Pointers
-</div>
         </div>
+        <!--</div>-->
 
-
-
-
-            <div id="3081" class="colored_div" style="border-radius:10px;background-color:rgb(224, 146, 146);opacity:0.92;position: absolute;left:567px;top:35px;height:521px;width:332px">
-            </div>
-            <div style="color:rgb(51, 51, 51);padding:9px;position: absolute;left:567px;top:35px;height:521px;width:332px">
-
-              <div class="design_buttons">
-
-
-              </div>
-              <div style="padding:10px;margin-right: 25px;height:468.90000000000003px;overflow: auto;">
-  <h1>Should Be</h1>
-<ol>
-<li>Legible</li>
-<li>Completely filled</li>
-<li>Details as per proofs provided</li>
-<li>Nomination details</li>
-<li>PAN/ Form 60 compulsory</li>
-<li>Mode of Operation to be filled</li>
-<li>Signature verification</li>
-<li>Photo Verification</li>
-<li>Signature to be signed across photograph</li>
-<li>Address to be verified with the documents</li>
-<li>Mother's maiden name complusory</li>
-</ol>
+    </div>
 </div>
-        </div>
 
- </div>
- </div><div style='position:absolute; top:40%;right:20px'><a href= 'KYCChecklist.html'><img src='assets/next.png'/></a></div> <div style='position:absolute; top:40%;left:20px'><a href= 'AccountOpeningForm.html'><img src='assets/previous.png'/></a></div>
+
+</body>
+</html>
+
+
+<div style='position:relative; top:300px;left:1115px;'><a href='Sample.html'><img src='assets/righti.png'/></a></div>
+<div style='position:absolute; top:300px;left:10px'><a href='AccountOpeningForm.html'><img src='assets/lefti.png'/></a>
+</div>
+
+                            

@@ -5,26 +5,27 @@
   <% @assignment=@assignments.last %>
 
   <div class="bbtxt" style="font-size:24px;">
-   Your Score on the Quiz: <%= (Quiz.find_by_assignment_id(@assignments.last.id).score.to_f / Quiz.find_by_assignment_id(@assignments.last.id).qcount)*100 %>%
+   <!--Your Score on the Quiz: <%#= (Quiz.find_by_assignment_id(@assignments.last.id).score.to_f / Quiz.find_by_assignment_id(@assignments.last.id).qcount)*100 %>%-->
  </div>
  <br>
  <br>
  <% @docket=@assignments.last.case_study.dockets.first %>
- <div class="bbtxt" style="font-size:24px;">
+ <div class="bbtxt" style="font-size:24px; color: #f5f5f5;">
   Your Score on the DocuChecks: 
 </div>
 <br>
 <br>
 <table class="table table-bordered">
   <tr>
-    <th>Document Name</th>
-    <th>Total Sections </th>
-    <th>Number Of Sections Correct </th>
-    <th>Number Of Sections In-Correct </th>
-    <th>Document Score</th>
-    <th>Pages</th>
 
-    <th></th>
+    <th style="text-align: center;">Document Name</th>
+    <th style="text-align: center;">Total Sections </th>
+    <th style="text-align: center;">Number Of Sections Correct </th>
+    <th style="text-align: center;">Number Of Sections In-Correct </th>
+    <th style="text-align: center;">Document Score</th>
+    <th style="text-align: center;">Action</th>
+
+    <!--<th></th>-->
 
 
   </tr>
@@ -32,14 +33,14 @@
   <% if !DocketsDocument.find_by_docket_id_and_document_id(@docket.id,document.id).reference_document?%>
   <tr>
 
-    <td><%= document.name %></td>
+    <td style="text-align: center;" ><%= document.name %></td>
     <% count=0 %>
     <% document.pages.each do |page| %>
     <% count=count+page.blank_sections.count %>
     <% end %>
 
-    <td><%= count %></td>
-    <td>
+    <td style="text-align: center;"><%= count %></td>
+    <td style="text-align: center;">
       <% score=Docucheck.find_by_document_id_and_assignment_id(document.id,@assignment.id).score %>
       <% if score==0 %>
       Not played yet
@@ -48,7 +49,7 @@
       <% end %>
 
     </td>
-    <td>
+    <td style="text-align: center;">
       <% if score==0 %>
       Not played yet
       <% else %>
@@ -57,7 +58,7 @@
     </td>
 
 
-    <td>
+    <td style="text-align: center;">
       <% if score==0 %>
       Not played yet
       <% else %>
@@ -65,11 +66,13 @@
       <% end %>
 
     </td>
-    <td>
+    <td style="text-align: center;">
       <% if score==0 %>
       <%= link_to "Try Now", list_documents_path(:assignment_id => @assignment.id, :docket_id=>Docket.last.id) %>
       <% else %>
-      <%= link_to "Show Pages", show_corrected_page_path(@assignment.id, @docket.id, Docucheck.find_by_document_id_and_assignment_id(document.id,@assignment.id).id, document.pages.first.id) %>
+      <%= link_to "Show Pages", show_corrected_page_path(@assignment.id, @docket.id, Docucheck.find_by_document_id_and_assignment_id(document.id,@assignment.id).id, document.pages.first.id) %> |
+          <a href="/assets/SavingsAccount/SavingsBankAccount.html" target="_blank">Product Tutorial</a> |
+          <a href="/assets/Axis_bank_document/FirstSlide.html" target="_blank">Ptrainer</a>
       <% end %>
 
     </td>

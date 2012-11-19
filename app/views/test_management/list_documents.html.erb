@@ -29,24 +29,27 @@
 
 <table class="table table-bordered" style="background: white;">
   <tr>
-    <th class="header-row">Document Name</th>
-    <th class="header-row"></th>
+    <th class="header-row" style="font-size: 20px">Document Name</th>
+
   </tr>
 
   <% @docuchecks.each do |docu| %>
       <% if !DocketsDocument.find_by_document_id_and_docket_id(docu.document_id, docu.docket_id).reference_document? %>
-          <% if !docu.played %>
-              <tr>
 
-                <td><%= Document.find(docu.document_id).name %></td>
-                <td><%= link_to "Start the Checking", play_document_test_path(docu.id, 1) %></td>
-              </tr>
-          <% end %>
+          <%# if !docu.played %>
+          <tr>
+            <%#=@docuchecks.count%>
+            <td style="font-size: 15px; color: maroon;" ><strong><%= Document.find(docu.document_id).name %></strong><%= link_to "Review Previous Attempts", result_landing_page_path,:class=>"btn btn-danger",:style=>"float:right;margin-right:40px;" %><%= link_to "Practice New", play_document_test_path(docu.id, 1,@assignment.id),:class => "btn btn-success",:style => "float:right;margin-right:30px;" %></td>
+
+
+          </tr>
+          <%# end %>
 
 
       <% end %>
   <% end %>
 </table>
+
 <br>
 <br>
 <br>

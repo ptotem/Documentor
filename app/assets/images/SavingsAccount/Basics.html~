@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Axis Bank Saving Account</title>
+    <link href="assets/imp/silverspoon.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="assets/imp/jquery.js" type="text/javascript"></script>
+    <meta content="authenticity_token" name="csrf-param"/>
+    <meta content="RTMVj+9EhojTIH0HAOe6AN/bTUDiZxdTFqRjG3oi8V0=" name="csrf-token"/>
+</head>
+<body>
+<div id="wrapper">
+
+    <div class="container-fluid">
+        <!--<div class="content" style="background: transparent; left: -20px;padding-left: 0px;">-->
+
+
+        <script type="text/javascript">
+            function sequence(i) {
+                $('#item' + i).fadeIn(2000, function () {
+                    i++;
+                    if (i < 6) {
+                        sequence(i);
+                    }
+                });
+            }
+            $(function () {
+                sequence(1)
+
+            });
+        </script>
+
+
+        <div id="pslide_display_back" style=" position: absolute;
+        top: 20px;
+        left: 150px;
+        border-radius: 10px;
+        margin-top: 30px;
+        width: 960px;
+        height: 600px;
+        overflow: hidden;
+        border:1px solid black;">
+
+            <img alt="Docuback" src="assets/blueback1.jpg" style="position:absolute;width:960px;height:600px;"/>
+
+        </div>
+        <div id="pslide_display" style="
+		position: absolute;
+        top: 20px;
+        left: 150px;
+        border-radius: 10px;
+        margin-top: 30px;
+        width: 960px;
+        height: 600px;
+        border: 0 px solid #0099CC;
+        background: transparent;
+        overflow: hidden;">
+            <div>
+
+
+                <div id="5323" class="colored_div"
+                     style="border-radius:10px;background-color:#99182C;opacity:0.89;position: absolute;left:39px;top:40px;height:120px;width:40%">
+                </div>
+
+                <div style="color:rgb(232,207,207);padding:9px;position: absolute;left:39px;top:40px;height:174px;width:auto;">
+
+                    <div style="text-align:left;padding:20px;font-size: 30px; font-family:Arial;font-weight: 1 ;line-height:32px; ">
+                        Savings Bank Account
+                        <div style="font-size:14px;line-height:16px;padding:20px;background:#CD5555;margin-top:10px;color:black;border-radius:10px;margin-left:20px;">
+                        A savings account that transcends geographical boundaries    
+                        </div>
+                        
+                    </div>
+                </div>
+
+ 
+<img src="assets/Income.jpg" style="position:absolute;width:300px;top: 250px;left:100px;border-radius: 10px;opacity: 0.9"/>
+
+
+                <div id="5324" class="colored_div"
+                     style="border-radius:10px;opacity:0.95;position: absolute;left:337px;top:152px;width:610px">
+                </div>
+                <div style="color:rgb(0,0,0);padding:20px;position: absolute;left:400px;top:200px;height:275px;width:520px;">
+
+                    <style type="text/css">
+                        h1 {
+                            color: rgb(0, 0, 0);
+                            text-align: center;
+
+                        }
+
+                        p {
+
+                            text-align: center;
+                            font-weight: bold;
+
+                        }
+                    </style>
+					
+                    <div style="border-radius:10px; padding:15px;padding-right:25px;background:#F5F5F5; margin-right: 25px; text-color:black; font-size:18px; margin-left: 10px;height:510px;opacity:0.95">
+                        <br>
+                        <ul>
+ 
+                            <li type=circle id="item1">Simplest deposit option available to the depositor.<br/><br/>
+                            <li type=circle id="item2">Money can be deposited for any quantum of time; there are no minimum or maximum deposit periods for this offering.<br/><br/>
+		            <li type=circle id="item3">Deposits are insured by DICGC<br/><br/>
+                            <li type=circle id="item4">Option for money withdrawal by withdrawal forms or by cheque.<br/><br/>
+                            <li type=circle id="item5">Provision for nomination.<br/><br/>    
+                            
+                            
+                            
+                        </ul>
+
+                    </div>
+                </div>
+ 
+<a href="assets/imp/Edelweiss_Tokio_Life_Protection.pdf"><img src="assets/download_button1.png" style="position:absolute;width:300px;top: 165px;right:20px;border-radius: 10px;opacity: 0.9"/></a>
+
+
+            </div>  
+                
+        </div>
+        <!--</div>-->
+
+    </div>
+</div>
+
+
+</body>
+</html>
+
+</div><div style='position:absolute; top:40%;right:20px'><a href= 'Offerings.html'><img src='assets/righti.png'/></a></div> <div style='position:absolute; top:40%;left:-20px'><a href= 'SavingsBankAccount.html'><img src='assets/lefti.png'/></a></div>
+

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Axis Bank Saving Account</title>
+    <link href="assets/imp/silverspoon.css" media="screen" rel="stylesheet" type="text/css"/>
+    <script src="assets/imp/jquery.js?body=1" type="text/javascript"></script>
+    <script src="assets/pslide.js?body=1" type="text/javascript"></script>
+    <script src="assets/pslidejs/jquery.magnifier.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            $('.behaving_2577').fadeIn(3000);
+            $('#behaving_2591').delay('5000').fadeIn(2000);
+            $('#behaving_2591').parent().css("width", "320px");
+            $('#behaving_2592').delay('4000').fadeIn(2000);
+            $('#behaving_2592').parent().css("width", "320px");
+            $('#behaving_2593').delay('2000').fadeIn(2000);
+            $('#behaving_2593').parent().css("width", "320px");
+
+        });
+    </script>
+</head>
+
+<div id="pslide_display_back" style=" position: absolute;
+top: 20px;
+        left: 220px;
+        border-radius: 10px;
+        margin-top: 30px;
+        width: 960px;
+        height: 600px;
+        overflow: hidden;
+        border:1px solid black;">
+
+    <img alt="Greenback" src="assets/team.jpg" style="position:absolute;width:960px;height:600px;"/>
+
+</div>
+<div id="pslide_display" style="
+position: absolute;
+        top: 20px;
+        left: 220px;
+        border-radius: 10px;
+        margin-top: 30px;
+        width: 960px;
+        height: 600px;
+        border: 1px solid #000000;
+        background: transparent;
+        overflow: hidden;">
+    <div>
+
+
+        <div id="2590" class="colored_div"
+             style="border-radius:10px;background-color:#99182C;opacity:0.81;position: absolute;left:589px;top:15px;height:120px;width:313px">
+        </div>
+        <div style="color:rgb(255,255,255);padding:9px;position: absolute;left:589px;top:40px;height:142px;width:313px">
+
+            <div class="design_buttons">
+
+
+            </div>
+
+
+            <div id="behaving_2590"
+                 <div style="text-align: center;padding:23.249041106356977px;font-size: 59.39223434086311px;line-height:30px; ">
+                Team Information
+            </div>
+        </div>
+
+       <!-- <div style="color:rgb(0,0,0);padding:9px;position: absolute;left:100px;top:30px;height:400px;width:400px">
+            <h2 style="color:black;text-align:center">Click to enlarge</h2>
+            <br>
+            <img id="flowchart" class="behaving_2577 magnify" src="assets/imp/pflow.png"
+                 style="border-radius: 10px;display: none;height:400px;width:400px;"/>
+            <br/>
+
+
+        </div>
+-->
+        <div id="2591" class="colored_div"
+             style="border-radius:10px;background-color:#99182C;opacity:0.4;position: absolute;left:520px;top:440px;height:120px;width:411px">
+        </div>
+        <div style="color:rgb(255,255,255);padding:9px;position: absolute;left:520px;top:420px;height:100px;width:391px">
+
+            <div class="design_buttons">
+
+
+            </div>
+
+            <div id="behaving_2591"
+                 style="left;520px; text-align: center;margin-top:32.28764044943819px;font-size: 14px;line-height:16px;">
+                <h5>Second level of escalation</h5>
+                Mayuresh Karnik
+                <br>
+                mayuresh.karnik@axisbank.in
+                <br>
+                9878767900 / 022 40987898 / extn 3409
+            </div>
+        </div>
+
+
+        <div id="2592" class="colored_div"
+             style="border-radius:10px;background-color:#99182C;opacity:0.6;position: absolute;left:480px;top:300px;height:120px;width:411px">
+        </div>
+        <div style="color:rgb(255,255,255);padding:9px;position: absolute;left:480px;top:282px;height:100px;width:391px">
+
+            <div class="design_buttons">
+
+
+            </div>
+
+            <div id="behaving_2592"
+                 style="text-align: center;margin-top:26.65459807073956px;font-size: 14px;line-height:16px; ">
+                <h5>First level of escalation</h5>
+                 Shashidhar Oruganti
+                <br>
+                 Shashidhar.Oruganti@axisbank.in
+                <br>
+                9878767345 / 022 40987800 / extn 3435
+            </div>
+        </div>
+
+
+        <div id="2593" class="colored_div"
+             style="border-radius:10px;background-color:#99182C;opacity:0.9;position: absolute;left:440px;top:160px;height:120px;width:411px">
+        </div>
+        <div style="color:rgb(255,255,255);padding:9px;position: absolute;left:440px;top:150px;height:135px;width:353px">
+
+            <div class="design_buttons">
+
+
+            </div>
+
+            <div id="behaving_2593"
+                 style="text-align: center;margin-top:20.050891089108916px;font-size: 14px;line-height:16px; ">
+                <h5>The first point of contact</h5>
+                Sameer Kulkarni
+                <br>
+                sameer.kulkarni@axisbank.in
+                <br>
+                9878735457 / 022 40983124 / extn 3205
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div style='position:absolute; top:300px;left:60px'><a href='Offerings.html'><img src='assets/lefti.png'/></a>
+</div>
+</html>

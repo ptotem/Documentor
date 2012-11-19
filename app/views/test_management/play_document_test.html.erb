@@ -106,16 +106,24 @@ body{
         <th class="blocky wtxt" style="border-radius:0px;border:3px solid darkred;font-size:18px;padding-top:10px;padding-bottom:10px;">Reference Documents</th>
       </tr>
       <% @reference_documents.each do |ref_doc| %>
-      <tr>
-        <td style="border:3px solid darkred">
-          <%= link_to "#{ref_doc.name}", show_reference_doc_path(@docucheck.docket_id, ref_doc.id,1), :target => "_blank" %>
-          <br>
-          <br>
-        </td>
-      </tr>
+          <tr>
+            <td style="border:3px solid darkred">
+              <a href="/show_reference_doc/<%=@docucheck.docket_id%>/<%=ref_doc.id%>/1" target="_blank">
+                <img src="<%=Page.find_by_document_id(ref_doc.id).blank_form.url(:medium)%>" style="height:50px;" alt="">
+              </a>
+              <br>
+              <%= link_to "#{ref_doc.name}", show_reference_doc_path(@docucheck.docket_id, ref_doc.id,1), :target => "_blank" %>
+              <br>
+              <br>
+            </td>
+          </tr>
       <% end %>
+
     </table>
   </div>
+  <br>
+  <%#= link_to "Back To DocuCheck", list_documents_path(@assignment.id,@docket.id),:class=>"btn btn-danger",:style=>"float:right-down;"  %>
+  <br/>
 
   <br/>
 
@@ -152,7 +160,12 @@ body{
    left: <%=  blank_section.xpos %>px;
    width: <%= blank_section.width %>px;
    height:<%= blank_section.height %>px;
-   padding-top: 15px
+   padding-top: 15px;
+           font-family: Purisa;
+           font-size: 12px;
+           font-weight: bold;
+           text-align: left;
+           letter-spacing: 5px;
 
    "
    >  <%= @example.text_content %></p>
@@ -160,11 +173,11 @@ body{
    <%= image_tag("cross.png", :style => "
     position :absolute;
     z-index:6000;
-    top :#{blank_section.ypos }px;
+    top :#{blank_section.ypos+10 }px;
     left: #{ blank_section.xpos }px;
     visibility:hidden;
     background:transparent
-    ", :class => filled_section.id, :size => "32x32") %>
+    ", :class => filled_section.id, :size => "16x16") %>
 
     <% end %>
   </div>
