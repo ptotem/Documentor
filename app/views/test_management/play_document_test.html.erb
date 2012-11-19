@@ -181,3 +181,15 @@ body{
 
     <% end %>
   </div>
+<script type="text/javascript" src="assets/jquery.jgrowl.js"></script>
+<link href="assets/jquery.jgrowl.css" media="screen" rel="stylesheet" type="text/css"/>
+
+<script type="text/javascript">
+    $(function(){
+        $.jGrowl("Click the area of the form which you find incorrect.", {
+            position: "bottom-right",
+            life: 10000,
+            header: 'Click to Explore'
+        });
+    })
+</script>
